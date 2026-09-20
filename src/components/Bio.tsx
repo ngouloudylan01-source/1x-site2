@@ -85,7 +85,7 @@ export default function Bio() {
               },
               {
                 t: "L'international — Zénith, SNEP, Les Flammes, Epic Records",
-                p: "2025-2026 : Cabaret Sauvage puis Zénith de Paris (28 janvier 2026), tournée américaine (New York, Washington), Dour Festival, Rockhal. « Number One » avec Minz est certifié single d'or au SNEP (~15 M de streams). Aux Flammes 2026, il est le premier artiste africain à remporter la Flamme du morceau de musiques africaines. L'album Sorry I'm Bad sort chez Epic Records avec Gazo, Leto, La Fouine, ElGrandeToto et Zlatan. Prochaine étape : le Stade Olympique d'Ébimpé, le 26 décembre 2026 — objectif 60 000 personnes.",
+                p: "2025-2026 : Cabaret Sauvage puis Zénith de Paris (28 janvier 2026), tournée américaine (New York, Washington), Dour Festival, Rockhal. « Number One » avec Minz est certifié single d'or au SNEP (~15 M de streams). Aux Flammes 2026 (23 avril), « Number One » remporte la Flamme du morceau de musiques africaines ou d'inspiration africaine. L'album Sorry I'm Bad sort chez Epic Records avec Gazo, Leto, La Fouine, ElGrandeToto et Zlatan. Prochaine étape : le Stade Olympique d'Ébimpé, le 26 décembre 2026 — objectif 60 000 personnes.",
               },
             ].map((b, i) => (
               <div key={i} className="glass rounded-sm p-6 border-l-2 border-blood-600/50 hover:border-blood-500 transition-colors">

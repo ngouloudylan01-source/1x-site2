@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: 'Discographie', href: '#disco' },
   { label: 'Charts', href: '#/charts' },
   { label: 'Lifestyle', href: '#/lifestyle' },
-  { label: 'Actualités', href: '#actus' },
+  { label: 'Ivorian Doll', href: '#ivorian-doll' },
   { label: 'Certifications', href: '#certifs' },
 ];
 

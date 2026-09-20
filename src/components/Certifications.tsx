@@ -1,5 +1,5 @@
 import { Award, ExternalLink, Trophy, Disc3 } from 'lucide-react';
-import { CERTIFICATIONS, TROPHIES, BAREME, PHOTOS } from '@/data';
+import { CERTIFICATIONS, TROPHIES, BAREME, PHOTOS, PALMARES } from '@/data';
 import { SectionHead, TruthBadge } from './Section';
 import SourceTooltip from './SourceTooltip';
 
@@ -37,8 +37,30 @@ export default function Certifications() {
           kicker="Or · Platine · Diamant"
           title={<>MUR DES <span className="text-gradient-gold">CERTIFICATIONS</span></>}
           accent="gold"
-          desc="Chaque disque porte son organisme, sa date et sa source. Ce qui n'est pas prouvé est marqué « non confirmé » — jamais inventé."
+          desc="Chaque disque porte son organisme, sa date et sa source. Le rappeur ivoirien le plus titré de l'histoire."
         />
+
+        {/* Bilan éditorial — gros chiffres façon magazine */}
+        <a
+          href={PALMARES.source}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="grid grid-cols-3 max-w-3xl mx-auto mb-12 glass rounded-sm divide-x divide-white/10 hover:border-gold-400/40 transition-all"
+        >
+          {[
+            { n: PALMARES.total, l: 'trophées en carrière' },
+            { n: PALMARES.certifications, l: 'certifications disques' },
+            { n: PALMARES.awards, l: 'awards & prix' },
+          ].map((s) => (
+            <div key={s.l} className="py-6 px-4 text-center">
+              <span className="block font-black-display text-4xl sm:text-6xl text-gradient-gold leading-none">{s.n}</span>
+              <span className="block mt-2 text-[10px] sm:text-[11px] uppercase tracking-widest text-anthracite-300">{s.l}</span>
+            </div>
+          ))}
+        </a>
+        <p className="text-center text-[11px] text-anthracite-400 -mt-8 mb-12">
+          {PALMARES.note} — source : Critikmag.
+        </p>
 
         {/* Barème APRODEMCI */}
         <div className="max-w-2xl mx-auto glass rounded-sm p-5 mb-12 border-l-2 border-gold-400">
@@ -106,33 +128,33 @@ export default function Certifications() {
           </div>
         </div>
 
-        {/* Photos réelles : Himra et ses trophées */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {/* Photos réelles : les Flammes 2026 */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           <div className="group relative rounded-sm overflow-hidden border-2 border-gold-400/30 shadow-3d-deep">
             <img
-              src={PHOTOS.heroTrophees.src}
-              alt="HIMRA posant avec ses trophées en main"
-              loading="lazy"
-              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4">
-              <p className="text-sm text-white font-semibold">Trophées en main — le vrai signe 1X, lui, se fait uniquement avec les doigts.</p>
-            </div>
-            <SourceTooltip credit={PHOTOS.heroTrophees.credit} source={PHOTOS.heroTrophees.source} position="top" />
-          </div>
-          <div className="group relative rounded-sm overflow-hidden border-2 border-blood-600/30 shadow-3d-deep">
-            <img
-              src={PHOTOS.parcExpo.src}
-              alt="La foule du Parc des Expositions d'Abidjan"
+              src={PHOTOS.flammesTrophees.src}
+              alt="HIMRA avec ses Flammes dorées en main"
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
-              <p className="text-sm text-white font-semibold">Le sacre du public — Parc des Expositions, complet.</p>
+              <p className="text-sm text-white font-semibold">Les Flammes en main — deux succès consécutifs à Paris (avril 2026).</p>
             </div>
-            <SourceTooltip credit={PHOTOS.parcExpo.credit} source={PHOTOS.parcExpo.source} position="top" />
+            <SourceTooltip credit={PHOTOS.flammesTrophees.credit} source={PHOTOS.flammesTrophees.source} position="top" />
+          </div>
+          <div className="group relative rounded-sm overflow-hidden border-2 border-blood-600/30 shadow-3d-deep">
+            <img
+              src={PHOTOS.flammesPerf.src}
+              alt="HIMRA en performance sur la scène des Flammes, baignée de rouge"
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <p className="text-sm text-white font-semibold">La performance aux Flammes — la scène en rouge 1X.</p>
+            </div>
+            <SourceTooltip credit={PHOTOS.flammesPerf.credit} source={PHOTOS.flammesPerf.source} position="top" />
           </div>
         </div>
       </div>

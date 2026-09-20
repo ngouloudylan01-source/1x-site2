@@ -71,6 +71,17 @@ export const LINKS = {
   youngRichPapi: 'https://www.youtube.com/watch?v=Ysm6dZzcOVQ',
   spotifyCharts: 'https://charts.spotify.com/charts/overview/global',
   kworbSpotify: 'https://kworb.net/spotify/artist/39SBljHcUD66edvRmiRqlS_songs.html',
+  critikmag50: 'https://critikmag.com/himra-le-roi-du-rap-ivoirien-couronne-de-50-trophees-et-detenteur-inconteste-du-record-historique/',
+  lavenirFlammes: 'https://www.lavenir.ci/people/14556-flammes-awards-himra-sadjuge-deux-succes-consecutifs',
+  aipFlammes: 'https://www.aip.ci/353103/cote-divoire-aip-inter-himra-remporte-la-flamme-du-morceau-dinspiration-africaine-de-lannee/',
+  abidjanNetParcExpo: 'https://news.abidjan.net/articles/738044/musique-himra-enflamme-le-parc-des-expositions-dabidjan-avec-son-concert-sauvage-2',
+  cent100Culture: 'https://www.100pour100culture.com/musique/himra-au-zenith-le-rap-ivoirien-franchit-un-cap-a-paris/',
+  gregoriEbimpe: 'https://gregori-international.com/realisations/stade-alassane-ouattara/',
+  ivdGuardian: 'https://www.theguardian.com/music/2021/jan/01/im-not-wearing-tracksuits-im-sexy-ivorian-doll-drills-first-female-star',
+  ivdGelee: 'https://www.geleeradio.com/ivorian-doll-hold-it-down-un-melange-dafro-pop-et-de-drill/',
+  ivdPrs: 'https://www.prsformusic.com/m-magazine/features/interview-ivorian-doll',
+  ivdInstagram: 'https://www.instagram.com/ivoriandoll',
+  ivdSpotify: 'https://open.spotify.com/artist/44BOfF9jCbwqp6yZOwt2ZM',
 };
 
 // ---------- Photos réelles créditées ----------
@@ -100,6 +111,41 @@ export const PHOTOS = {
     src: '/media/urus-illustration.jpg',
     credit: 'Photo d\'illustration — Lamborghini Urus (image non liée à Himra)',
     source: LINKS.rapKingTiktok,
+  },
+  zenithLive: {
+    src: '/media/zenith-live.jpg',
+    credit: '100pour100culture — Himra sur la scène du Zénith de Paris (28 janv. 2026)',
+    source: LINKS.cent100Culture,
+  },
+  parcExpoLive: {
+    src: '/media/parc-expo-live.jpg',
+    credit: 'Abidjan.net — Himra enflamme le Parc des Expositions (26 déc. 2024)',
+    source: LINKS.abidjanNetParcExpo,
+  },
+  flammesTrophees: {
+    src: '/media/flammes-trophees.jpg',
+    credit: 'L\'Avenir CI — Himra et ses Flammes, deux succès consécutifs (avril 2026)',
+    source: LINKS.lavenirFlammes,
+  },
+  flammesPerf: {
+    src: '/media/flammes-perf.jpg',
+    credit: 'AIP — Himra en performance aux Flammes (© Les Flammes / Spotify)',
+    source: LINKS.aipFlammes,
+  },
+  himraIvd: {
+    src: '/media/himra-ivd-flammes.jpg',
+    credit: 'L\'Avenir CI — Himra et Ivorian Doll, arrivée aux Flammes Awards',
+    source: 'https://www.lavenir.ci/people/14142-apres-une-grosse-performance-aux-flammes-awards-2025-himra-pre-nomme-dans-deux-categories-de-ledition-2026',
+  },
+  ivorianDoll: {
+    src: '/media/ivorian-doll-hold-it-down.jpg',
+    credit: 'Pochette officielle « Hold It Down » — Ivorian Doll (2025)',
+    source: LINKS.ivdGelee,
+  },
+  stadeEbimpe: {
+    src: '/media/stade-ebimpe.jpg',
+    credit: 'Gregori International — Stade Olympique Alassane Ouattara d\'Ébimpé',
+    source: LINKS.gregoriEbimpe,
   },
   heroTrophees: {
     src: '/media/himra-trophee.jpg',
@@ -262,7 +308,7 @@ export const TIMELINE: {
   {
     year: '2026',
     title: '« Number One » (avec Minz) — single d\'or SNEP',
-    desc: "Certifié single d'or en France (~15 M de streams, janvier 2026). Aux Flammes (26 avril 2026), premier artiste africain à remporter la Flamme du morceau de musiques africaines.",
+    desc: "Certifié single d'or en France (~15 M de streams, janvier 2026). Aux Flammes (23 avril 2026), le titre remporte la Flamme du morceau de musiques africaines ou d'inspiration africaine.",
     cat: 'recompenses', confirmed: true, source: 'https://snepmusique.com/les-certifications/', sourceLabel: 'SNEP',
   },
   {
@@ -304,14 +350,14 @@ export const EVENTS: EventItem[] = [
     title: 'Parc des Expositions, Abidjan — complet',
     date: '26 DÉC. 2024',
     type: 'CONCERT',
-    img: PHOTOS.parcExpo.src,
-    desc: "Le concert de l'année à Abidjan : le Parc des Expositions plein, des dizaines de milliers de Chete.",
+    img: PHOTOS.parcExpoLive.src,
+    desc: "Le concert de l'année à Abidjan : 40 000 fans au Parc des Expositions, un record pour un rappeur local.",
     longDesc:
-      "Le 26 décembre 2024, Himra remplit le Parc des Expositions d'Abidjan. Des dizaines de milliers de « Chete » réunis, cagoules 1X sur les têtes, doigts croisés levés vers le ciel. La presse ivoirienne parle d'une démonstration de force sans précédent pour le Drill Ivoire : un artiste indépendant, parti des freestyles de quartier, qui réunit une marée humaine dans la plus grande zone événementielle du pays. C'est ce soir-là que le pays entier comprend que le mouvement 1X n'est plus un phénomène de niche — c'est une culture.",
+      "Le 26 décembre 2024, Himra remplit le Parc des Expositions d'Abidjan avec son « Concert Sauvage 2 » : 40 000 fans selon le bilan de Critikmag, un exploit inédit pour un rappeur local. Des dizaines de milliers de « Chete » réunis, cagoules 1X sur les têtes, doigts croisés levés vers le ciel. La presse ivoirienne parle d'une démonstration de force sans précédent pour le Drill Ivoire. C'est ce soir-là que le pays entier comprend que le mouvement 1X n'est plus un phénomène de niche — c'est une culture.",
     accent: '#e8452c',
-    source: LINKS.connectionIvoirienne,
-    sourceLabel: 'Connection Ivoirienne',
-    credit: PHOTOS.parcExpo.credit,
+    source: LINKS.abidjanNetParcExpo,
+    sourceLabel: 'Abidjan.net',
+    credit: PHOTOS.parcExpoLive.credit,
     liveLink: LINKS.youtube,
     liveLinkLabel: 'Extraits live — chaîne YouTube officielle',
     outfit: 'Tout-noir de scène, chaînes argentées XXL — l\'uniforme 1X.',
@@ -355,17 +401,17 @@ export const EVENTS: EventItem[] = [
     title: 'Zénith Paris – La Villette : « NOUVEAU BOSS »',
     date: '28 JAN. 2026',
     type: 'CONCERT',
-    img: PHOTOS.zenithPoster.src,
-    desc: "Premier Zénith, sous la bannière « NOUVEAU BOSS ». Une consécration pour tout le rap ivoirien.",
+    img: PHOTOS.zenithLive.src,
+    desc: "Premier Zénith, sous la bannière « NOUVEAU BOSS ». « Le rap ivoirien franchit un cap à Paris. »",
     longDesc:
-      "Le 28 janvier 2026, Himra prend le Zénith Paris-La Villette (6 300 places) d'assaut avec un show unique baptisé « NOUVEAU BOSS ». L'affiche officielle le montre en manteau de fourrure, lunettes noires, diamants aux poignets : l'imagerie du boss assumée. C'est la consécration scénique européenne du Drill Ivoire — un rappeur d'Abidjan, en tête d'affiche d'une des salles mythiques du rap en France.",
-    accent: '#8a8f98',
-    source: LINKS.sortirAParis,
-    sourceLabel: 'Sortir à Paris',
-    credit: PHOTOS.zenithPoster.credit,
-    liveLink: LINKS.arenaTour,
-    liveLinkLabel: 'L\'annonce du concert — Arena Tour',
-    outfit: 'Manteau de fourrure grise, lunettes noires, diamants — le « Nouveau Boss ».',
+      "Le 28 janvier 2026, Himra prend le Zénith Paris-La Villette (6 300 places) d'assaut avec un show unique baptisé « NOUVEAU BOSS ». Débardeur blanc, bonnet, lumières bleues : les images du live font le tour des réseaux. « Le rap ivoirien franchit un cap à Paris », titre 100pour100culture. C'est la consécration scénique européenne du Drill Ivoire — un rappeur d'Abidjan, en tête d'affiche d'une des salles mythiques du rap en France.",
+    accent: '#4a7fd4',
+    source: LINKS.cent100Culture,
+    sourceLabel: '100pour100culture',
+    credit: PHOTOS.zenithLive.credit,
+    liveLink: LINKS.sortirAParis,
+    liveLinkLabel: 'L\'affiche « NOUVEAU BOSS » — Sortir à Paris',
+    outfit: 'Débardeur blanc, bonnet, chaînes — l\'énergie brute sous les lumières bleues du Zénith.',
   },
   {
     id: 4,
@@ -471,20 +517,20 @@ export const EVENTS: EventItem[] = [
   },
   {
     id: 10,
-    title: 'Les Flammes 2026 — une première africaine',
-    date: '26 AVR. 2026',
+    title: 'Les Flammes 2026 — la Flamme de « Number One »',
+    date: '23 AVR. 2026',
     type: 'RÉCOMPENSE',
-    img: PHOTOS.heroTrophees.src,
-    desc: "Premier artiste africain à remporter la Flamme du morceau de musiques africaines, avec « Number One ».",
+    img: PHOTOS.flammesTrophees.src,
+    desc: "Flamme du morceau de musiques africaines pour « Number One » avec Minz — saluée par la ministre de la Culture.",
     longDesc:
-      "Le 26 avril 2026 à Paris, Himra devient le premier artiste africain à remporter la Flamme du morceau de musiques africaines, pour « Number One » avec Minz — single par ailleurs certifié or par le SNEP en janvier 2026 (~15 M de streams en France). Sur la photo, il pose avec ses trophées, bras croisés — attention : le vrai signe 1X, lui, se fait uniquement avec les doigts.",
+      "Dans la nuit du 23 avril 2026 à Paris, Himra remporte la Flamme du morceau de musiques africaines ou d'inspiration africaine pour « Number One » avec Minz — single par ailleurs certifié or par le SNEP en janvier 2026 (~15 M de streams en France). Un an après sa performance remarquée à l'édition 2025 (mix de « Yorobo Drill Acte 3 » et « Banger »), le trophée arrive enfin. La ministre ivoirienne de la Culture, Françoise Remarck, le félicite publiquement : « Ton message pour la Côte d'Ivoire est touchant. » Il arrive sur le tapis rouge accompagné d'Ivorian Doll.",
     accent: '#caa24a',
-    source: 'https://lesflammes.fr',
-    sourceLabel: 'Les Flammes',
-    credit: PHOTOS.heroTrophees.credit,
-    liveLink: 'https://snepmusique.com/les-certifications/',
-    liveLinkLabel: 'La certification SNEP',
-    outfit: 'Tenue de gala noire, trophées dorés en main.',
+    source: LINKS.lavenirFlammes,
+    sourceLabel: 'L\'Avenir CI',
+    credit: PHOTOS.flammesTrophees.credit,
+    liveLink: LINKS.aipFlammes,
+    liveLinkLabel: 'Le récit de la victoire — AIP',
+    outfit: 'Bonnet blanc, lunettes fines, débardeur crème — les Flammes dorées en main.',
   },
   {
     id: 11,
@@ -508,17 +554,17 @@ export const EVENTS: EventItem[] = [
     title: 'STADE OLYMPIQUE D\'ÉBIMPÉ — objectif 60 000',
     date: '26 DÉC. 2026',
     type: 'À VENIR',
-    img: PHOTOS.fansSigne.src,
+    img: PHOTOS.stadeEbimpe.src,
     desc: "Le concert événement : le stade olympique Alassane Ouattara, 14 h, objectif 60 000 personnes.",
     longDesc:
       "Le 26 décembre 2026 à 14 h, Himra vise le plus grand défi de sa carrière : remplir le Stade Olympique Alassane Ouattara d'Ébimpé — l'enceinte de la CAN 2023 — avec un objectif annoncé de 60 000 spectateurs. Deux ans jour pour jour après le Parc des Expositions. Si le pari est tenu, ce sera l'un des plus grands concerts jamais donnés par un rappeur ivoirien sur son sol. Billetterie officielle ouverte sur Tikerama.",
     accent: '#e8452c',
     source: LINKS.tikerama,
     sourceLabel: 'Billetterie officielle',
-    credit: PHOTOS.fansSigne.credit,
+    credit: PHOTOS.stadeEbimpe.credit,
     liveLink: LINKS.tikerama,
     liveLinkLabel: 'Billetterie officielle — Tikerama',
-    outfit: 'Tout un stade en cagoules et doigts croisés — le rêve 1X.',
+    outfit: 'L\'enceinte de la CAN 2023 — 60 000 places à remplir.',
   },
 ];
 
@@ -627,12 +673,8 @@ export const FEATS_CONFIRMED = [
   { artist: 'O\'Kenneth, Kwaku DMC, Beeztrap KOTM, Reggie', proj: 'JEUNE & RICHE Deluxe — « GANJAMAN »', source: 'https://www.deezer.com/album/658781171', sourceLabel: 'Deezer' },
 ];
 
-export const FEATS_RUMORS = [
-  { artist: 'Burna Boy', desc: 'Teasers studio partagés par des comptes fans. Rien d\'annoncé officiellement.' },
-  { artist: 'Booba', desc: 'Échanges publics sur X entre les deux artistes. Aucun communiqué.' },
-  { artist: 'Central Cee', desc: 'Aperçus dans un même studio à Londres selon des fans. Non confirmé.' },
-  { artist: 'Rema', desc: 'Un remix afrobeats évoqué par des sources proches du label. À confirmer.' },
-];
+// (Les rumeurs de featurings ont été retirées du site : seules les
+// collaborations confirmées par une source officielle sont affichées.)
 
 // ---------- Certifications (barème APRODEMCI) ----------
 export const BAREME = {
@@ -641,46 +683,100 @@ export const BAREME = {
   organisme: 'APRODEMCI — barème officiel ivoirien',
 };
 
+// Liste complète — sources : Critikmag (bilan « 50 trophées », 30 nov. 2025),
+// Wikipédia FR (2 sept. 2026) et SNEP. Premier artiste ivoirien certifié sur
+// quatre projets différents, premier rappeur ivoirien disque de platine.
 export const CERTIFICATIONS = [
   {
-    type: 'or', typeLabel: "Disque d'Or", title: 'JEUNE & RICHE', year: '2024',
-    detail: "Or en ~6 mois — record de rapidité en Côte d'Ivoire.",
-    confirmed: true, source: LINKS.connectionIvoirienne, sourceLabel: 'Presse ivoirienne',
+    type: 'diamant', typeLabel: 'Disque de Diamant (APRODEMCI)', title: 'JEUNE & RICHE (DELUXE)', year: '2025',
+    detail: "Plus de 8 millions d'écoutes en moins d'un an — un record national de rapidité.",
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag / Wikipédia',
+    cover: DZ_COVER('07b4c4289b251d46418a45841145b1ee'),
+  },
+  {
+    type: 'platine', typeLabel: 'Double Disque de Platine (APRODEMCI)', title: 'JEUNE & RICHE (DELUXE)', year: '2025',
+    detail: "4 millions d'écoutes — double platine six mois après la sortie.",
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag / Wikipédia',
+    cover: DZ_COVER('07b4c4289b251d46418a45841145b1ee'),
+  },
+  {
+    type: 'platine', typeLabel: 'Disque de Platine (APRODEMCI)', title: 'JEUNE & RICHE (DELUXE)', year: 'fév. 2025',
+    detail: 'Premier rappeur ivoirien de l\'histoire à décrocher le platine (seuls Yodé & Siro l\'avaient fait avant lui).',
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag',
+    cover: DZ_COVER('07b4c4289b251d46418a45841145b1ee'),
+  },
+  {
+    type: 'or', typeLabel: "Disque d'Or (APRODEMCI)", title: 'JEUNE & RICHE', year: 'déc. 2024',
+    detail: "Certifié or environ six mois après la sortie du 25 juillet 2024.",
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag / APRODEMCI',
     cover: DZ_COVER('719cf9ad359b5a30a8a1cd95042a5795'),
   },
   {
-    type: 'platine', typeLabel: 'Disque de Platine', title: 'JEUNE & RICHE', year: '2025',
-    detail: 'Certification platine après l\'or.',
-    confirmed: true, source: LINKS.connectionIvoirienne, sourceLabel: 'Presse ivoirienne',
-    cover: DZ_COVER('719cf9ad359b5a30a8a1cd95042a5795'),
-  },
-  {
-    type: 'or', typeLabel: "Disque d'Or", title: '1X (mixtape)', year: 'avril 2025',
-    detail: 'La mixtape du mouvement certifiée or.',
-    confirmed: true, source: LINKS.connectionIvoirienne, sourceLabel: 'Presse ivoirienne',
+    type: 'or', typeLabel: "Disque d'Or (APRODEMCI)", title: '1X (mixtape)', year: 'avril 2025',
+    detail: 'La mixtape qui a baptisé le mouvement, certifiée or.',
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag',
     cover: DZ_COVER('18a5b84606f0a266e8f5477ca6700327'),
   },
   {
-    type: 'or', typeLabel: "Single d'Or (SNEP)", title: '« Number One » avec Minz', year: 'janv. 2026',
-    detail: '~15 millions de streams en France.',
-    confirmed: true, source: 'https://snepmusique.com/les-certifications/', sourceLabel: 'SNEP',
-    cover: DZ_COVER('719cf9ad359b5a30a8a1cd95042a5795'),
+    type: 'or', typeLabel: "Disque d'Or (APRODEMCI)", title: 'IDK2', year: '2025',
+    detail: 'Ivoire Drill King 2 rejoint le mur des certifications.',
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag',
+    cover: DZ_COVER('f01c1d290356a4ac7b555875e1aa7f16'),
   },
   {
-    type: 'diamant', typeLabel: 'Double platine / Diamant', title: 'JEUNE & RICHE', year: '—',
-    detail: 'Évoqués par certaines sources (APRODEMCI).',
-    confirmed: false, source: LINKS.connectionIvoirienne, sourceLabel: 'À confirmer',
+    type: 'or', typeLabel: "Disque d'Or (APRODEMCI)", title: 'BIG AKA 4 AKA KAI', year: '2025',
+    detail: "L'EP surprise certifié or — 4ᵉ projet certifié, un record ivoirien.",
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag',
+    cover: DZ_COVER('08356a72de523808b4abf3213fcf556d'),
+  },
+  {
+    type: 'or', typeLabel: "Disque d'Or (AMC)", title: 'JEUNE & RICHE (DELUXE)', year: '2025',
+    detail: 'Certification or délivrée par l\'African Music Chart.',
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag / AMC',
+    cover: DZ_COVER('07b4c4289b251d46418a45841145b1ee'),
+  },
+  {
+    type: 'platine', typeLabel: 'Disque de Platine (AMC)', title: 'JEUNE & RICHE (DELUXE)', year: '2025',
+    detail: 'Certification platine délivrée par l\'African Music Chart.',
+    confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag / AMC',
+    cover: DZ_COVER('07b4c4289b251d46418a45841145b1ee'),
+  },
+  {
+    type: 'or', typeLabel: "Single d'Or (SNEP)", title: '« Number One » avec Minz', year: 'janv. 2026',
+    detail: '~15 millions de streams en France — certifié par le SNEP.',
+    confirmed: true, source: 'https://snepmusique.com/les-certifications/', sourceLabel: 'SNEP',
     cover: DZ_COVER('719cf9ad359b5a30a8a1cd95042a5795'),
   },
 ];
 
+// 50 trophées en carrière (bilan Critikmag, 30 nov. 2025) — rappeur ivoirien le plus titré de l'histoire.
 export const TROPHIES = [
-  { name: 'African Talent Awards ×3', year: '2024', cat: 'Meilleur Album Francophone (Jeune & Riche) · Meilleur Artiste Francophone · Black Trophy', confirmed: true, source: LINKS.connectionIvoirienne, sourceLabel: 'Presse ivoirienne' },
-  { name: 'Les Flammes', year: '26 avril 2026', cat: 'Premier artiste africain à remporter la Flamme du morceau de musiques africaines', confirmed: true, source: 'https://lesflammes.fr', sourceLabel: 'Les Flammes' },
-  { name: 'Trace Awards', year: '2024', cat: 'Révélation de l\'année', confirmed: true, source: LINKS.connectionIvoirienne, sourceLabel: 'Presse' },
-  { name: 'Kundé d\'Or', year: '2025', cat: 'Meilleur artiste ouest-africain', confirmed: true, source: LINKS.connectionIvoirienne, sourceLabel: 'Presse' },
-  { name: 'Headies Awards (Nigeria)', year: '—', cat: 'Distinction', confirmed: false, source: LINKS.connectionIvoirienne, sourceLabel: 'À confirmer' },
+  { name: 'Les Flammes 2026', year: '23 avril 2026', cat: 'Flamme du morceau de musiques africaines ou d\'inspiration africaine — « Number One » avec Minz', confirmed: true, source: LINKS.lavenirFlammes, sourceLabel: 'L\'Avenir CI / AIP' },
+  { name: 'PRIMUD ×6', year: '2024–2025', cat: 'Meilleur Artiste Rap Ivoirien · Meilleur Rap Francophone · Meilleur Feat Urbain · Hit de l\'Année · PRIMUD d\'Or 2025', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Arawo Awards (Bénin) ×6', year: '2024–2025', cat: 'Six trophées remportés au Bénin', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Iconic Awards ×5', year: '2024', cat: 'Cinq trophées en une édition', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Jayli Awards ×4', year: '29 nov. 2025', cat: 'Meilleur Artiste Masculin Ivoirien · Meilleur Artiste d\'Afrique de l\'Ouest · Meilleure Chanson (« Banger ») — le cap des 50 trophées', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Galsen Awards (Sénégal) ×4', year: '2024–2025', cat: 'Quatre trophées au Sénégal', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Mic Musique Awards ×4', year: '2024', cat: 'Quatre trophées en une édition', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'African Talent Awards ×3', year: '2024', cat: 'Meilleur Album Francophone (Jeune & Riche) · Meilleur Artiste Francophone · Black Trophy', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'A.M.R ×2', year: '2024', cat: 'Deux trophées', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Kundé d\'Or', year: '2025', cat: 'Meilleur artiste de l\'Afrique de l\'Ouest', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'The Headies (Nigeria)', year: '2025', cat: 'Meilleur artiste d\'Afrique de l\'Ouest', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Trace Awards', year: '2024', cat: 'Best Newcomer — révélation de l\'année', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Pulse Award', year: '2024', cat: 'Lauréat', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Benin Showbiz Award', year: '2024', cat: 'Lauréat', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Hip-Hop Ivoire Trophy', year: '2022', cat: 'Lauréat', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
+  { name: 'Abidjan Hip-Hop Award', year: '2019', cat: 'Son premier trophée — le coup d\'éclat des débuts', confirmed: true, source: LINKS.critikmag50, sourceLabel: 'Critikmag' },
 ];
+
+// Bilan chiffré du palmarès (Critikmag, 30 nov. 2025)
+export const PALMARES = {
+  total: 50,
+  certifications: 10,
+  awards: 40,
+  note: 'Rappeur ivoirien le plus titré de l\'histoire — 50 trophées au 29 novembre 2025 (Jayli Awards).',
+  source: LINKS.critikmag50,
+};
 
 // ---------- Agenda concerts ----------
 export const CONCERTS = [
@@ -776,9 +872,9 @@ export const LIFESTYLE_STYLES = [
     img: PHOTOS.zenithPoster.src,
     desc: "Manteau de fourrure grise, lunettes noires, diamants aux poignets : l'imagerie assumée de l'affiche du Zénith 2026. Le boss, version Drill Ivoire.",
     pieces: [
-      { nom: 'Manteau de fourrure oversize', prix: '≈ 800 000 – 2 000 000 FCFA', confirme: false },
-      { nom: 'Lunettes noires oversize', prix: '≈ 150 000 – 400 000 FCFA', confirme: false },
-      { nom: 'Bracelets diamantés', prix: 'non communiqué', confirme: false },
+      { nom: 'Manteau de fourrure oversize', prix: 'pièce visible sur l\'affiche officielle', confirme: true },
+      { nom: 'Lunettes noires oversize', prix: 'signature du look « boss »', confirme: true },
+      { nom: 'Bijoux diamantés aux poignets', prix: 'visibles sur le visuel officiel', confirme: true },
     ],
     credit: PHOTOS.zenithPoster.credit,
     source: LINKS.sortirAParis,
@@ -790,9 +886,9 @@ export const LIFESTYLE_STYLES = [
     img: PHOTOS.trone.src,
     desc: "Torse nu, silhouette sculptée, montre de luxe et chaînes visibles, sur un trône doré baigné de rouge : la séance photo la plus iconique de l'ère Saiyen. Pulse CI le résume : « torse nu et toujours charmant ».",
     pieces: [
-      { nom: 'Montre de luxe (poignet gauche)', prix: 'non communiqué', confirme: false },
-      { nom: 'Chaînes et pendentif « 1X »', prix: 'non communiqué', confirme: false },
-      { nom: 'Bagues et bracelets', prix: 'non communiqué', confirme: false },
+      { nom: 'Montre de luxe (poignet gauche)', prix: 'visible sur la photo officielle', confirme: true },
+      { nom: 'Chaînes et pendentif', prix: 'visibles sur la photo officielle', confirme: true },
+      { nom: 'Bagues et bracelets', prix: 'visibles sur la photo officielle', confirme: true },
     ],
     credit: PHOTOS.trone.credit,
     source: LINKS.tcoprod,
@@ -804,9 +900,9 @@ export const LIFESTYLE_STYLES = [
     img: PHOTOS.signe1x.src,
     desc: "T-shirts oversize, bombers, jeans larges, cagoules, chaînes argentées XXL, casquettes fonctionnelles et le collier « 1X » — « une fois chette ». Le portrait stylistique dressé par Pulse CI.",
     pieces: [
-      { nom: 'Collier « 1X » signature', prix: 'pièce unique — non communiqué', confirme: false },
-      { nom: 'Chaînes argentées XXL', prix: '≈ 100 000 – 500 000 FCFA', confirme: false },
-      { nom: 'Cagoule 1X', prix: 'merch du mouvement', confirme: false },
+      { nom: 'Collier « 1X » signature — « une fois chette »', prix: 'décrit par Pulse CI', confirme: true },
+      { nom: 'Chaînes argentées XXL', prix: 'décrites par Pulse CI', confirme: true },
+      { nom: 'Cagoule 1X', prix: 'emblème du mouvement', confirme: true },
     ],
     credit: PHOTOS.signe1x.credit,
     source: LINKS.pulseStyles,
@@ -831,24 +927,60 @@ export const LIFESTYLE_CARS = [
   {
     nom: 'Lamborghini Urus',
     img: PHOTOS.urusIllustration.src,
-    desc: "En mars 2025, Himra affiche sur Snapchat une Lamborghini Urus estimée par la presse people à près de 200 millions de FCFA, puis présente le reçu officiel d'achat pour faire taire les rumeurs. Il serait le premier rappeur ivoirien à en posséder une.",
-    prix: '≈ 200 000 000 FCFA (estimation presse)',
-    confirme: false,
+    desc: "En mars 2025, Himra présente publiquement le reçu officiel d'achat de sa Lamborghini Urus, après l'avoir dévoilée sur Snapchat. La presse people ivoirienne (Rap King) chiffre le modèle à près de 200 millions de FCFA et le décrit comme le premier rappeur ivoirien à en posséder une.",
+    prix: '≈ 200 000 000 FCFA (chiffrage presse du modèle)',
+    confirme: true,
     credit: PHOTOS.urusIllustration.credit,
     source: LINKS.rapKingTiktok,
-    sourceLabel: 'Rap King (TikTok) — mars 2025',
-  },
-  {
-    nom: 'Maison + deux voitures « en moins de 2 ans »',
-    img: PHOTOS.parcExpo.src,
-    desc: "En janvier 2025, des comptes spécialisés relaient des images où Himra montre sa maison et deux voitures acquises « en moins de deux ans avec l'argent du Rap Ivoire ». Modèles et montants non confirmés officiellement.",
-    prix: 'montants non communiqués',
-    confirme: false,
-    credit: 'Images relayées par les comptes fans — non vérifiées indépendamment',
-    source: LINKS.rapKingTiktok,
-    sourceLabel: 'Rap King (TikTok) — janv. 2025',
+    sourceLabel: 'Rap King (TikTok) — mars 2025, reçu d\'achat montré',
   },
 ];
+
+// ---------- Ivorian Doll — la compagne d'Himra, « Queen of Drill » ----------
+// Faits vérifiés : The Guardian (01/01/2021), PRS for Music, Gelée Radio (2025),
+// presse ivoirienne (L'Avenir CI, tapis rouge des Flammes 2026).
+export const IVORIAN_DOLL = {
+  nom: 'Ivorian Doll',
+  vraiNom: 'Vanessa Mahi',
+  naissance: '1997 — née en Allemagne de parents ivoiriens, grandit à l\'est de Londres',
+  titre: '« Queen of Drill » — première star féminine de la drill UK',
+  photo: PHOTOS.ivorianDoll,
+  photoCouple: PHOTOS.himraIvd,
+  bio: [
+    {
+      txt: "Née Vanessa Mahi en 1997 en Allemagne, de parents originaires de Côte d'Ivoire, elle grandit à l'est de Londres à partir de ses trois ans. Avant la musique, elle est une youtubeuse populaire, connue pour ses « storytimes ».",
+      source: 'https://www.theguardian.com/music/2021/jan/01/im-not-wearing-tracksuits-im-sexy-ivorian-doll-drills-first-female-star',
+      sourceLabel: 'The Guardian',
+    },
+    {
+      txt: "En 2020, son single « Rumours » explose (plus de 5 millions de vues YouTube) et lui vaut le titre de « Queen of Drill » : The Guardian la consacre première star féminine de la drill britannique.",
+      source: 'https://www.theguardian.com/music/2021/jan/01/im-not-wearing-tracksuits-im-sexy-ivorian-doll-drills-first-female-star',
+      sourceLabel: 'The Guardian',
+    },
+    {
+      txt: "En 2024, elle rejoint l'univers 1X sur « SEXY », extrait de JEUNE & RICHE (DELUXE) — la connexion Abidjan-Londres est officielle sur tracklist.",
+      source: 'https://www.deezer.com/album/658781171',
+      sourceLabel: 'Deezer (tracklist officielle)',
+    },
+    {
+      txt: "En 2025, elle sort « Hold It Down », mélange d'afro-pop et de drill qui assume ses racines ivoiriennes. La même année, elle apparaît publiquement aux côtés d'Himra ; le couple foule ensemble le tapis rouge des Flammes 2026 à Paris.",
+      source: 'https://www.geleeradio.com/ivorian-doll-hold-it-down-un-melange-dafro-pop-et-de-drill/',
+      sourceLabel: 'Gelée Radio / L\'Avenir CI',
+    },
+    {
+      txt: "Début 2026, la presse people et les comptes spécialisés rapportent la naissance de leur fille et des apparitions du couple entre Londres et Paris. Le couple ne communique officiellement que par ses apparitions publiques.",
+      source: 'https://www.lavenir.ci/people/14142-apres-une-grosse-performance-aux-flammes-awards-2025-himra-pre-nomme-dans-deux-categories-de-ledition-2026',
+      sourceLabel: 'Presse people (apparitions publiques)',
+    },
+  ],
+  liens: [
+    { label: 'Instagram', url: LINKS.ivdInstagram },
+    { label: 'Spotify', url: LINKS.ivdSpotify },
+    { label: 'Le portrait du Guardian', url: LINKS.ivdGuardian },
+    { label: 'Interview PRS for Music', url: LINKS.ivdPrs },
+  ],
+  featCommun: { titre: '« SEXY » — Himra feat. Ivorian Doll', album: 'JEUNE & RICHE (DELUXE), 2024', link: 'https://www.deezer.com/album/658781171' },
+};
 
 // ---------- Événement Ébimpé ----------
 export const EBIMPE = {

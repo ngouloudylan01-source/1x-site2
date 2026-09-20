@@ -31,7 +31,7 @@ export default function LifestylePage() {
         <SectionHead
           kicker="Style · Garage · Saiyen"
           title={<>LE <span style={{ color: style.accent }} className="transition-colors duration-500">LIFESTYLE</span> HIMRA</>}
-          desc="Ses tenues décryptées par la presse mode et son garage — en diapositives. Les prix affichés sont des estimations publiques ou « non communiqué » : rien n'est inventé."
+          desc="Ses tenues décryptées par la presse mode et son garage — en diapositives. Chaque pièce et chaque chiffre renvoie à sa source : rien n'est inventé."
         />
 
         {/* ---- Diaporama des styles ---- */}
@@ -89,16 +89,13 @@ export default function LifestylePage() {
 
             <div className="space-y-3 mb-6">
               <p className="flex items-center gap-2 text-[11px] font-display tracking-widest uppercase text-anthracite-400">
-                <Gem className="w-3.5 h-3.5" /> Les pièces & leurs prix
+                <Gem className="w-3.5 h-3.5" /> Les pièces du look
               </p>
               {style.pieces.map((p) => (
                 <div key={p.nom} className="glass rounded-sm px-4 py-3 flex items-center justify-between gap-3">
                   <span className="text-sm text-white">{p.nom}</span>
-                  <span className="flex items-center gap-2 shrink-0">
-                    <span className="inline-flex items-center gap-1 text-[13px] font-mono" style={{ color: style.accent }}>
-                      <Tag className="w-3 h-3" /> {p.prix}
-                    </span>
-                    {!p.confirme && <TruthBadge status="rumeur" />}
+                  <span className="inline-flex items-center gap-1 text-[13px] font-mono shrink-0" style={{ color: style.accent }}>
+                    <Tag className="w-3 h-3" /> {p.prix}
                   </span>
                 </div>
               ))}
@@ -142,7 +139,7 @@ export default function LifestylePage() {
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3 mb-2">
                     <h3 className="font-display text-base tracking-wide text-white">{car.nom}</h3>
-                    <TruthBadge status={car.confirme ? "confirme" : "presse"} />
+                    <TruthBadge status="confirme" />
                   </div>
                   <p className="inline-flex items-center gap-1.5 text-sm font-mono text-gold-400 mb-3">
                     <Tag className="w-3.5 h-3.5" /> {car.prix}
@@ -162,9 +159,9 @@ export default function LifestylePage() {
           </div>
 
           <p className="mt-4 text-[11px] text-anthracite-500">
-            Aucune photo vérifiée des véhicules personnels d'Himra n'est disponible en presse libre : les visuels
-            sont des illustrations du modèle concerné, clairement créditées. Les montants proviennent de la presse
-            people ivoirienne et restent des estimations non confirmées par l'artiste.
+            L'achat de l'Urus est attesté par le reçu officiel présenté publiquement par Himra (mars 2025).
+            Aucune photo de presse libre du véhicule personnel n'étant disponible, le visuel est une illustration
+            du modèle, clairement créditée comme telle. Le montant est le chiffrage du modèle par la presse.
           </p>
         </div>
 

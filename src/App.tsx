@@ -7,12 +7,14 @@ import Hits from '@/components/Hits';
 import Dashboard from '@/components/Dashboard';
 import News from '@/components/News';
 import Featurings from '@/components/Featurings';
+import IvorianDoll from '@/components/IvorianDoll';
 import Certifications from '@/components/Certifications';
 import Community from '@/components/Community';
 import Bio from '@/components/Bio';
 import Footer from '@/components/Footer';
 import FloatingPlayer from '@/components/FloatingPlayer';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import Marquee from '@/components/Marquee';
 import ChartsPage from '@/pages/ChartsPage';
 import EventPage from '@/pages/EventPage';
 import LifestylePage from '@/pages/LifestylePage';
@@ -37,6 +39,7 @@ function App() {
         {route.page === 'home' && (
           <main>
             <Hero />
+            <Marquee />
             <Timeline />
             <EventsCarousel />
             <Discography />
@@ -44,6 +47,7 @@ function App() {
             <Dashboard />
             <News />
             <Featurings />
+            <IvorianDoll />
             <Certifications />
             <Community />
             <Bio />
