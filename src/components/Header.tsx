@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 
 const NAV_LINKS = [
   { label: 'Accueil', href: '#hero' },
-  { label: 'Biographie', href: '#bio' },
+  { label: 'Parcours', href: '#parcours' },
   { label: 'Discographie', href: '#disco' },
-  { label: 'Actualités', href: '#feed' },
-  { label: 'Charts', href: '#charts' },
-  { label: 'Tournée', href: '#tour' },
-  { label: '1X ULTRA', href: '#community' },
-  { label: 'Shop', href: '#shop' },
+  { label: 'Charts', href: '#/charts' },
+  { label: 'Lifestyle', href: '#/lifestyle' },
+  { label: 'Actualités', href: '#actus' },
+  { label: 'Certifications', href: '#certifs' },
 ];
 
 export default function Header() {
@@ -25,21 +24,21 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass border-b border-blood-600/20 py-3' : 'bg-transparent py-5'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'glass border-b border-blood-600/20 py-2.5' : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        <a href="#hero" className="flex items-center group">
+        <a href="#hero" className="flex items-center group" aria-label="Retour à l'accueil">
           <Logo size="md" className="group-hover:scale-105 transition-transform duration-300" />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="link-underline text-sm font-medium text-anthracite-200 hover:text-white transition-colors uppercase tracking-wide"
+              className="link-underline text-[13px] font-medium text-anthracite-200 hover:text-white transition-colors uppercase tracking-wide"
             >
               {link.label}
             </a>
@@ -48,11 +47,10 @@ export default function Header() {
 
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="#shop"
-            className="flex items-center gap-2 px-4 py-2 bg-blood-600/20 border border-blood-500/40 text-white text-sm font-semibold rounded-sm hover:bg-blood-600/40 transition-all glow-red"
+            href="#ultra"
+            className="px-4 py-2 bg-blood-600 text-white text-sm font-semibold rounded-sm hover:bg-blood-500 transition-all glow-red"
           >
-            <ShoppingBag className="w-4 h-4" />
-            Merch
+            Rejoindre la 1X ULTRA
           </a>
         </div>
 
@@ -65,9 +63,9 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Menu mobile */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-500 ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ${
           menuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
@@ -82,6 +80,13 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <a
+            href="#ultra"
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 px-4 py-2.5 bg-blood-600 text-white text-sm font-semibold rounded-sm text-center"
+          >
+            Rejoindre la 1X ULTRA
+          </a>
         </nav>
       </div>
     </header>
