@@ -13,15 +13,17 @@ const DZ_COVER = (md5: string) =>
 
 // ---------- Vidéos vérifiées (chaîne officielle « Himra officiel ») ----------
 export const VIDEOS = {
-  BARA_BARA: 'B6XOr6eelJ8',
-  NAIGAIDJAN: 'SWQ-B1gmnpQ',
+  BARA_BARA: 'B6XOr6eelJ8', // single SORRY I'M BAD — mai 2026
+  YOROBO_3: '8TtKAgU0FYg', // le clip le plus vu de la chaîne (28,9M)
+  LEGENDES: '7uD3NbpVCm0', // avec La Fouine — 23,6M
+  SOLO: 'L3y9-Sztf7o', // clip officiel JEUNE & RICHE — 15M
   NOSTALGIE: 'KUVZaAZJyQs',
+  YOUNG_RICH_PAPI: 'Ysm6dZzcOVQ', // feat Leto — 6,8M
+  NAIGAIDJAN: 'SWQ-B1gmnpQ',
+  YOUPRN: 'W5qW7GlNmNI', // n°1 tendances FR/CA — sept. 2026
   DE_TEMPS_EN_TEMPS: 'DTqq5Ylk_hw',
   TOP_BOY_LIVE: 'AhKN-sNhTFs',
   FREESTYLE_DRILL_7: '58WshW68J6s',
-  INCENDIE: '6-Aw77WiT9E',
-  SOLO: '4m0KfvPo-As',
-  BANGER: '3VFekRr1FS8',
 };
 
 export const LINKS = {
@@ -50,13 +52,58 @@ export const LINKS = {
   wikipediaFr: 'https://fr.wikipedia.org/wiki/Himra',
   genius: 'https://genius.com/artists/Himra',
   tikerama: 'https://himra.tikerama.com',
+  abidjanShow1x: 'https://www.abidjanshow.com/news/actu-for-men/277077',
+  sortirAParis: 'https://www.sortiraparis.com/scenes/concert-musique/articles/335083',
+  arenaTour: 'https://www.arena-tour.fr/himra-annonce-un-concert-unique-au-zenith-paris-le-28-janvier-2026',
+  tcoprod: 'https://www.tcoprod.eu/artiste/423-himra',
+  pulseStyles: 'https://www.pulse.ci/articles/lifestyle/mode-5-styles-d-himra-saiyen-a-decrypter-et-a-adopter-2025072220153967675',
+  hiphopcornerPsg: 'https://hiphopcorner.fr/rappeur-ivoirien-himra-devient-nouvel-egerie-marque-ici-cest-paris-du-psg',
+  hiphopcornerLegendes: 'https://hiphopcorner.fr/legendes-la-fouine-et-himra-depasse-8-millions-vues-youtube-mois/',
+  beninWebTv: 'https://beninwebtv.bj/himra-place-youprn-n1-des-tendances-youtube-en-france-et-au-canada/',
+  shangoMadeleine: 'https://www.shango.media/benin-web-himra-se-produit-ce-soir-a-la-madeleine-de-bruxelles-11854994',
+  ticketliveMadeleine: 'https://www.ticketlive.be/en/events/himra-la-madeleine/',
+  concerts50Rockhal: 'https://concerts50.com/show/himra-in-esch-sur-alzette-tickets-may-22-2026',
+  rapKingTiktok: 'https://www.tiktok.com/@rapkingofficiel/video/7485392359111413014',
+  legendes: 'https://www.youtube.com/watch?v=7uD3NbpVCm0',
+  yorobo3: 'https://www.youtube.com/watch?v=8TtKAgU0FYg',
+  solo: 'https://www.youtube.com/watch?v=L3y9-Sztf7o',
+  youprn: 'https://www.youtube.com/watch?v=W5qW7GlNmNI',
+  youngRichPapi: 'https://www.youtube.com/watch?v=Ysm6dZzcOVQ',
+  spotifyCharts: 'https://charts.spotify.com/charts/overview/global',
+  kworbSpotify: 'https://kworb.net/spotify/artist/39SBljHcUD66edvRmiRqlS_songs.html',
 };
 
 // ---------- Photos réelles créditées ----------
 export const PHOTOS = {
+  // Le VRAI signe 1X : uniquement avec les doigts (pouces croisés, index-majeurs levés).
+  signe1x: {
+    src: '/media/himra-signe-1x.jpg',
+    credit: 'Abidjan Show — Himra fait le signe 1X (doigts croisés) : « un branding, pas un symbole de violence »',
+    source: LINKS.abidjanShow1x,
+  },
+  zenithPoster: {
+    src: '/media/affiche-zenith.jpg',
+    credit: 'Affiche officielle « NOUVEAU BOSS » — Zénith Paris-La Villette, 28 janvier 2026',
+    source: LINKS.sortirAParis,
+  },
+  zenithBanner: {
+    src: '/media/zenith-banner.jpg',
+    credit: 'Visuel officiel du concert au Zénith de Paris — Arena Tour',
+    source: LINKS.arenaTour,
+  },
+  trone: {
+    src: '/media/himra-trone.jpg',
+    credit: 'TCO Prod — Himra, séance photo officielle (trône doré)',
+    source: LINKS.tcoprod,
+  },
+  urusIllustration: {
+    src: '/media/urus-illustration.jpg',
+    credit: 'Photo d\'illustration — Lamborghini Urus (image non liée à Himra)',
+    source: LINKS.rapKingTiktok,
+  },
   heroTrophees: {
     src: '/media/himra-trophee.jpg',
-    credit: 'Rap Time — Himra, trophées en main, bras croisés en 1X',
+    credit: 'Rap Time — Himra pose avec ses trophées (les bras croisés ne sont PAS le signe 1X, qui se fait aux doigts)',
     source: LINKS.rapTime,
   },
   portraitLeMonde: {
@@ -173,7 +220,7 @@ export const TIMELINE: {
   {
     year: '2023',
     title: 'Mixtape « 1X » — le mouvement est baptisé',
-    desc: "La mixtape 1X donne son nom au signe, au clan et à la communauté. « BARA BARA » devient un hymne continental (14M+ de vues).",
+    desc: "La mixtape 1X donne son nom au signe, au clan et à la communauté. Elle sera certifiée disque d'or en avril 2025.",
     cat: 'albums', confirmed: true, source: LINKS.baraBara, sourceLabel: 'YouTube officiel',
   },
   {
@@ -232,87 +279,246 @@ export const TIMELINE: {
   },
 ];
 
-// ---------- Carrousel d'événements (couleur adaptée à chaque visuel) ----------
-export const EVENTS = [
+// ---------- Événements (TOUS) — chaque événement a sa page de détail (#/evenement/id) ----------
+// « accent » : couleur dominante de la tenue / du visuel — elle teinte le site au survol (§ DA).
+export interface EventItem {
+  id: number;
+  title: string;
+  date: string;
+  type: string;
+  img: string;
+  desc: string;
+  longDesc: string;
+  accent: string;
+  source: string;
+  sourceLabel: string;
+  credit: string;
+  liveLink?: string;
+  liveLinkLabel?: string;
+  outfit?: string;
+}
+
+export const EVENTS: EventItem[] = [
   {
-    title: 'Parc des Expositions, Abidjan',
+    id: 0,
+    title: 'Parc des Expositions, Abidjan — complet',
     date: '26 DÉC. 2024',
     type: 'CONCERT',
     img: PHOTOS.parcExpo.src,
-    desc: "Le concert de l'année à Abidjan : le Parc des Expositions plein, des dizaines de milliers de Chete, une démonstration de force du Drill Ivoire.",
+    desc: "Le concert de l'année à Abidjan : le Parc des Expositions plein, des dizaines de milliers de Chete.",
+    longDesc:
+      "Le 26 décembre 2024, Himra remplit le Parc des Expositions d'Abidjan. Des dizaines de milliers de « Chete » réunis, cagoules 1X sur les têtes, doigts croisés levés vers le ciel. La presse ivoirienne parle d'une démonstration de force sans précédent pour le Drill Ivoire : un artiste indépendant, parti des freestyles de quartier, qui réunit une marée humaine dans la plus grande zone événementielle du pays. C'est ce soir-là que le pays entier comprend que le mouvement 1X n'est plus un phénomène de niche — c'est une culture.",
     accent: '#e8452c',
     source: LINKS.connectionIvoirienne,
+    sourceLabel: 'Connection Ivoirienne',
     credit: PHOTOS.parcExpo.credit,
+    liveLink: LINKS.youtube,
+    liveLinkLabel: 'Extraits live — chaîne YouTube officielle',
+    outfit: 'Tout-noir de scène, chaînes argentées XXL — l\'uniforme 1X.',
   },
   {
-    title: 'BARA BARA — le clip aux 14M+ de vues',
-    date: '2023',
-    type: 'CLIP',
-    img: YT(VIDEOS.BARA_BARA),
-    desc: "L'hymne qui a fait passer Himra du quartier au continent. Prod 1X Kamikaze — le morceau signature du mouvement.",
+    id: 1,
+    title: 'Stade de la BAE, Yopougon',
+    date: '15 FÉV. 2025',
+    type: 'CONCERT',
+    img: PHOTOS.concertRed.src,
+    desc: "Retour au quartier : Himra remplit le stade de la BAE de Yopougon, fief historique du mouvement.",
+    longDesc:
+      "Le 15 février 2025, Himra revient là où tout a commencé : Yopougon, la plus grande commune populaire d'Abidjan. Le stade de la BAE déborde. Un concert annoncé comme un remerciement au quartier, à la rue qui l'a vu freestyler dès ses 9 ans. Lumières rouges, fumigènes, la foule qui reprend chaque phrase en nouchi : la communion 1X à l'état pur.",
+    accent: '#d92332',
+    source: LINKS.abidjanNetBae,
+    sourceLabel: 'Abidjan.net',
+    credit: PHOTOS.concertRed.credit,
+    liveLink: LINKS.youtube,
+    liveLinkLabel: 'Lives et extraits — YouTube officiel',
+    outfit: 'Rouge sang sous les projecteurs — la couleur du clan.',
+  },
+  {
+    id: 2,
+    title: 'Cabaret Sauvage, Paris — complet en 10 jours',
+    date: '01 OCT. 2025',
+    type: 'CONCERT',
+    img: PHOTOS.stage.src,
+    desc: "Première grande salle parisienne, complète en moins de 10 jours. La diaspora répond présente.",
+    longDesc:
+      "Le 1er octobre 2025, Himra joue sa première grande date parisienne au Cabaret Sauvage, à La Villette. La salle affiche complet en moins de dix jours (source : billetterie Ticketlive). La diaspora ivoirienne et les curieux du rap francophone découvrent en live la machine 1X : énergie brute, nouchi hardcore, et un public qui connaît chaque morceau par cœur. Cette date déclenche la suite : le Zénith.",
+    accent: '#b8621b',
+    source: LINKS.ticketliveMadeleine,
+    sourceLabel: 'Ticketlive',
+    credit: PHOTOS.stage.credit,
+    liveLink: LINKS.youtube,
+    liveLinkLabel: 'Extraits du concert — YouTube',
+    outfit: 'Streetwear oversize, lunettes sombres — le style Saiyen à Paris.',
+  },
+  {
+    id: 3,
+    title: 'Zénith Paris – La Villette : « NOUVEAU BOSS »',
+    date: '28 JAN. 2026',
+    type: 'CONCERT',
+    img: PHOTOS.zenithPoster.src,
+    desc: "Premier Zénith, sous la bannière « NOUVEAU BOSS ». Une consécration pour tout le rap ivoirien.",
+    longDesc:
+      "Le 28 janvier 2026, Himra prend le Zénith Paris-La Villette (6 300 places) d'assaut avec un show unique baptisé « NOUVEAU BOSS ». L'affiche officielle le montre en manteau de fourrure, lunettes noires, diamants aux poignets : l'imagerie du boss assumée. C'est la consécration scénique européenne du Drill Ivoire — un rappeur d'Abidjan, en tête d'affiche d'une des salles mythiques du rap en France.",
+    accent: '#8a8f98',
+    source: LINKS.sortirAParis,
+    sourceLabel: 'Sortir à Paris',
+    credit: PHOTOS.zenithPoster.credit,
+    liveLink: LINKS.arenaTour,
+    liveLinkLabel: 'L\'annonce du concert — Arena Tour',
+    outfit: 'Manteau de fourrure grise, lunettes noires, diamants — le « Nouveau Boss ».',
+  },
+  {
+    id: 4,
+    title: 'Tournée US : Gramercy Theatre, New York',
+    date: '21 JUIN 2026',
+    type: 'CONCERT',
+    img: PHOTOS.scene1x.src,
+    desc: "Première tournée américaine — New York découvre le Drill Ivoire au Gramercy Theatre.",
+    longDesc:
+      "Le 21 juin 2026, Himra pose le 1X sur la scène du Gramercy Theatre de New York, dans la foulée de la sortie de SORRY I'M BAD chez Epic Records. Première incursion américaine pour le Drill Ivoire : la diaspora ouest-africaine des États-Unis répond présente. Une semaine plus tard, le 28 juin, la tournée passe par l'Union Stage de Washington D.C.",
+    accent: '#3f6db3',
+    source: LINKS.tikerama,
+    sourceLabel: 'Billetterie officielle',
+    credit: PHOTOS.scene1x.credit,
+    liveLink: LINKS.instagram,
+    liveLinkLabel: 'Les images de la tournée — Instagram officiel',
+    outfit: 'Total look 1X, casquette et chaînes — Babi à New York.',
+  },
+  {
+    id: 5,
+    title: 'Dour Festival, Belgique',
+    date: 'JUIL. 2026',
+    type: 'FESTIVAL',
+    img: PHOTOS.fansCagoule.src,
+    desc: "Le Drill Ivoire s'invite dans l'un des plus gros festivals alternatifs d'Europe.",
+    longDesc:
+      "À l'été 2026, Himra est programmé au Dour Festival, rendez-vous belge incontournable des musiques urbaines et électroniques (près de 250 000 festivaliers chaque année). Face à un public européen qui ne parle pas nouchi, l'énergie 1X fait le travail : le signe aux doigts croisés se propage dans la foule dès le deuxième morceau.",
+    accent: '#5f9e4c',
+    source: 'https://www.dourfestival.eu',
+    sourceLabel: 'Dour Festival',
+    credit: PHOTOS.fansCagoule.credit,
+    liveLink: LINKS.youtube,
+    liveLinkLabel: 'Aftermovies et extraits — YouTube',
+    outfit: 'Cagoule 1X et maillot — l\'esthétique du clan en festival.',
+  },
+  {
+    id: 6,
+    title: 'La Madeleine, Bruxelles',
+    date: '17 SEPT. 2026',
+    type: 'CONCERT',
+    img: PHOTOS.signe1x.src,
+    desc: "Bruxelles, complet — pendant que 9 de ses titres occupent le top 10 Apple Music Côte d'Ivoire.",
+    longDesc:
+      "Le 17 septembre 2026, Himra se produit à La Madeleine de Bruxelles (programme officiel de la Ville de Bruxelles). Le symbole est fort : au moment même où il monte sur scène en Belgique, ses titres occupent neuf des dix premières places d'Apple Music Côte d'Ivoire (source : Shango/Bénin Web TV). Le lendemain, 18 septembre, il enchaîne à la Rockhal (Main Hall) d'Esch-sur-Alzette, au Luxembourg.",
     accent: '#c8102e',
-    source: LINKS.baraBara,
-    credit: 'Miniature officielle — chaîne YouTube « Himra officiel »',
+    source: LINKS.shangoMadeleine,
+    sourceLabel: 'Shango Média',
+    credit: PHOTOS.signe1x.credit,
+    liveLink: LINKS.ticketliveMadeleine,
+    liveLinkLabel: 'La page du concert — Ticketlive',
+    outfit: 'Le signe 1X aux doigts croisés — l\'emblème avant tout.',
   },
   {
+    id: 7,
+    title: 'Rockhal Main Hall, Luxembourg',
+    date: '18 SEPT. 2026',
+    type: 'CONCERT',
+    img: PHOTOS.zenithBanner.src,
+    desc: "La tournée européenne continue : Main Hall de la Rockhal, à Esch-sur-Alzette.",
+    longDesc:
+      "Le 18 septembre 2026, au lendemain de Bruxelles, Himra investit la Main Hall de la Rockhal à Esch-Belval (Luxembourg), plus grande salle de concert du pays. La tournée européenne 2026 — France, Suisse, Belgique, Luxembourg — confirme l'implantation durable du Drill Ivoire sur le continent.",
+    accent: '#7d4bb8',
+    source: LINKS.concerts50Rockhal,
+    sourceLabel: 'Concerts50 / Rockhal',
+    credit: PHOTOS.zenithBanner.credit,
+    liveLink: 'https://www.rockhal.lu',
+    liveLinkLabel: 'Rockhal — site officiel',
+    outfit: 'Le visuel officiel de tournée : rouge et noir, EN GANG.',
+  },
+  {
+    id: 8,
+    title: 'JEUNE & RICHE — disque d\'or puis platine',
+    date: '2024–2025',
+    type: 'RÉCOMPENSE',
+    img: DZ_COVER('719cf9ad359b5a30a8a1cd95042a5795'),
+    desc: "Or en ~6 mois — record de rapidité en Côte d'Ivoire — puis platine. L'album du changement de dimension.",
+    longDesc:
+      "Sorti le 25 juillet 2024 chez Warner/Atlantic, JEUNE & RICHE devient disque d'or en Côte d'Ivoire en environ six mois — un record de rapidité selon la presse ivoirienne — avant d'être certifié platine (barème APRODEMCI : or = 10 000 CD ou 8 M de streams payants ; platine = 20 000 CD ou 16 M). L'album rafle aussi le prix du Meilleur Album Francophone aux African Talent Awards 2024. C'est le disque qui fait passer Himra du statut de phénomène local à celui de tête d'affiche continentale.",
+    accent: '#d4a437',
+    source: LINKS.connectionIvoirienne,
+    sourceLabel: 'Presse ivoirienne',
+    credit: 'Pochette officielle — Deezer',
+    liveLink: 'https://www.deezer.com/album/617572731',
+    liveLinkLabel: 'Écouter l\'album — Deezer',
+    outfit: 'La pochette : or et noir — les couleurs de la certification à venir.',
+  },
+  {
+    id: 9,
     title: 'Le portrait du Monde Afrique',
     date: 'MARS 2025',
     type: 'MOMENT CLÉ',
     img: PHOTOS.portraitLeMonde.src,
-    desc: "« Le rappeur qui parle à la rue, chante la galère et la hargne en nouchi hardcore. » La consécration médiatique internationale.",
+    desc: "« Le rappeur qui parle à la rue, chante la galère et la hargne en nouchi hardcore. »",
+    longDesc:
+      "Le 15 mars 2025, Le Monde Afrique consacre un long portrait à Himra : « En Côte d'Ivoire, le rappeur Himra parle à la rue, chante la galère et la hargne en nouchi hardcore ». La consécration médiatique internationale : le quotidien de référence français raconte Cocody, le nouchi, le signe 1X et la génération qui se reconnaît dans ce rap sans filtre.",
     accent: '#c98a3d',
     source: LINKS.leMonde,
+    sourceLabel: 'Le Monde Afrique',
     credit: PHOTOS.portraitLeMonde.credit,
+    liveLink: LINKS.leMonde,
+    liveLinkLabel: 'Lire le portrait — Le Monde',
+    outfit: 'Portrait sobre : veste sombre, regard direct — l\'artiste avant le personnage.',
   },
   {
-    title: 'JEUNE & RICHE — disque d\'or',
-    date: '2024',
-    type: 'RÉCOMPENSE',
-    img: DZ_COVER('719cf9ad359b5a30a8a1cd95042a5795'),
-    desc: "Or en ~6 mois — record de rapidité en Côte d'Ivoire — puis platine. L'album qui a changé la dimension de sa carrière.",
-    accent: '#d4a437',
-    source: LINKS.connectionIvoirienne,
-    credit: 'Pochette officielle — Deezer',
-  },
-  {
-    title: 'Le signe 1X, adopté par tout un peuple',
-    date: '2024',
-    type: 'MOMENT CLÉ',
-    img: PHOTOS.fansSigne.src,
-    desc: "Les doigts croisés en X, repris dans les stades, les écoles, les rues. Un branding positif : « une énergie que je transmets à mes fans ».",
-    accent: '#e07f4f',
-    source: LINKS.connectionIvoirienne,
-    credit: PHOTOS.fansSigne.credit,
-  },
-  {
-    title: 'NOSTALGIE — Official Video',
-    date: '2026',
-    type: 'CLIP',
-    img: YT(VIDEOS.NOSTALGIE),
-    desc: "13M+ de vues. Extrait de SORRY I'M BAD, l'album chez Epic Records.",
-    accent: '#a33b8f',
-    source: LINKS.nostalgie,
-    credit: 'Miniature officielle — chaîne YouTube « Himra officiel »',
-  },
-  {
-    title: 'Stade de la BAE, Yopougon',
-    date: 'FÉV. 2025',
-    type: 'CONCERT',
-    img: PHOTOS.concertRed.src,
-    desc: "Retour au quartier : Himra remplit le stade de la BAE de Yopougon, fief historique du mouvement.",
-    accent: '#d92332',
-    source: LINKS.abidjanNetBae,
-    credit: PHOTOS.concertRed.credit,
-  },
-  {
-    title: 'Trophées en main — EN GANG',
-    date: '2025',
+    id: 10,
+    title: 'Les Flammes 2026 — une première africaine',
+    date: '26 AVR. 2026',
     type: 'RÉCOMPENSE',
     img: PHOTOS.heroTrophees.src,
-    desc: "Himra pose avec ses récompenses, bras croisés en 1X. African Talent Awards ×3, Trace Awards, Kundé d'Or…",
+    desc: "Premier artiste africain à remporter la Flamme du morceau de musiques africaines, avec « Number One ».",
+    longDesc:
+      "Le 26 avril 2026 à Paris, Himra devient le premier artiste africain à remporter la Flamme du morceau de musiques africaines, pour « Number One » avec Minz — single par ailleurs certifié or par le SNEP en janvier 2026 (~15 M de streams en France). Sur la photo, il pose avec ses trophées, bras croisés — attention : le vrai signe 1X, lui, se fait uniquement avec les doigts.",
     accent: '#caa24a',
-    source: LINKS.rapTime,
+    source: 'https://lesflammes.fr',
+    sourceLabel: 'Les Flammes',
     credit: PHOTOS.heroTrophees.credit,
+    liveLink: 'https://snepmusique.com/les-certifications/',
+    liveLinkLabel: 'La certification SNEP',
+    outfit: 'Tenue de gala noire, trophées dorés en main.',
+  },
+  {
+    id: 11,
+    title: 'YOUP*RN — n°1 des tendances YouTube FR & CA',
+    date: '18 SEPT. 2026',
+    type: 'CLIP',
+    img: YTHQ('W5qW7GlNmNI'),
+    desc: "Le nouveau clip prend la tête des tendances YouTube en France et au Canada dès sa sortie.",
+    longDesc:
+      "Publié dans la nuit du 16 au 17 septembre 2026 sur la chaîne « Himra officiel », le clip « YOUP*RN » (2 min 44) s'installe dès le lendemain à la première place des tendances YouTube en France et au Canada, et 13e au Maroc (relevés Kworb et YTrending du 18 septembre, rapportés par Bénin Web TV). Près de 600 000 vues dès le relevé de minuit : la machine 1X tourne à plein régime, au moment même où l'artiste enchaîne Bruxelles et la Rockhal.",
+    accent: '#b3232e',
+    source: LINKS.beninWebTv,
+    sourceLabel: 'Bénin Web TV',
+    credit: 'Miniature officielle — chaîne YouTube « Himra officiel »',
+    liveLink: LINKS.youprn,
+    liveLinkLabel: 'Voir le clip — YouTube',
+    outfit: 'Direction artistique du clip : rouge et noir signature.',
+  },
+  {
+    id: 12,
+    title: 'STADE OLYMPIQUE D\'ÉBIMPÉ — objectif 60 000',
+    date: '26 DÉC. 2026',
+    type: 'À VENIR',
+    img: PHOTOS.fansSigne.src,
+    desc: "Le concert événement : le stade olympique Alassane Ouattara, 14 h, objectif 60 000 personnes.",
+    longDesc:
+      "Le 26 décembre 2026 à 14 h, Himra vise le plus grand défi de sa carrière : remplir le Stade Olympique Alassane Ouattara d'Ébimpé — l'enceinte de la CAN 2023 — avec un objectif annoncé de 60 000 spectateurs. Deux ans jour pour jour après le Parc des Expositions. Si le pari est tenu, ce sera l'un des plus grands concerts jamais donnés par un rappeur ivoirien sur son sol. Billetterie officielle ouverte sur Tikerama.",
+    accent: '#e8452c',
+    source: LINKS.tikerama,
+    sourceLabel: 'Billetterie officielle',
+    credit: PHOTOS.fansSigne.credit,
+    liveLink: LINKS.tikerama,
+    liveLinkLabel: 'Billetterie officielle — Tikerama',
+    outfit: 'Tout un stade en cagoules et doigts croisés — le rêve 1X.',
   },
 ];
 
@@ -384,13 +590,17 @@ export const ALBUMS = [
 ];
 
 // ---------- Hits & pépites ----------
+// Compteurs relevés le 20 septembre 2026 (API publique Return YouTube Dislike) —
+// puis actualisés EN DIRECT dans l'interface via la même API.
 export const HITS = [
-  { title: 'BARA BARA', album: '1X', year: '2023', streams: '14M+ vues YouTube', sourceLabel: 'YouTube (compteur public)', source: LINKS.baraBara, videoId: VIDEOS.BARA_BARA },
-  { title: 'NOSTALGIE', album: "SORRY I'M BAD", year: '2026', streams: '13M+ vues YouTube', sourceLabel: 'YouTube (compteur public)', source: LINKS.nostalgie, videoId: VIDEOS.NOSTALGIE },
+  { title: 'YOROBO DRILL ACTE 3', album: 'JEUNE & RICHE (DELUXE)', year: '2022', streams: '28,9M vues YouTube', sourceLabel: 'YouTube (relevé 20/09/2026)', source: LINKS.yorobo3, videoId: VIDEOS.YOROBO_3 },
+  { title: 'LÉGENDES (avec La Fouine)', album: 'Single', year: '2025', streams: '23,6M vues YouTube', sourceLabel: 'YouTube (relevé 20/09/2026)', source: LINKS.legendes, videoId: VIDEOS.LEGENDES },
+  { title: 'SOLO', album: 'JEUNE & RICHE', year: '2024', streams: '15M vues YouTube', sourceLabel: 'YouTube (relevé 20/09/2026)', source: LINKS.solo, videoId: VIDEOS.SOLO },
+  { title: 'BARA BARA', album: "SORRY I'M BAD", year: '2026', streams: '13,6M vues YouTube', sourceLabel: 'YouTube (relevé 20/09/2026)', source: LINKS.baraBara, videoId: VIDEOS.BARA_BARA },
+  { title: 'NOSTALGIE', album: "SORRY I'M BAD", year: '2026', streams: '13M vues YouTube', sourceLabel: 'YouTube (relevé 20/09/2026)', source: LINKS.nostalgie, videoId: VIDEOS.NOSTALGIE },
   { title: 'Number One (avec Minz)', album: 'JEUNE & RICHE', year: '2024', streams: 'Single d\'or SNEP · ~15M streams', sourceLabel: 'SNEP (janv. 2026)', source: 'https://snepmusique.com/les-certifications/', videoId: null },
-  { title: 'INCENDIE', album: 'JEUNE & RICHE (DELUXE)', year: '2024', streams: '5,6M vues YouTube', sourceLabel: 'YouTube (compteur public)', source: `https://www.youtube.com/watch?v=${VIDEOS.INCENDIE}`, videoId: VIDEOS.INCENDIE },
-  { title: 'Pti Déj (avec Hache-P)', album: 'Single', year: '2022', streams: 'Le single de la percée', sourceLabel: 'Genius', source: LINKS.genius, videoId: null },
-  { title: 'NAIGAIDJAN', album: 'Single', year: '2025', streams: '1,4M+ vues YouTube', sourceLabel: 'YouTube (compteur public)', source: LINKS.naigaidjan, videoId: VIDEOS.NAIGAIDJAN },
+  { title: 'YOUNG RICH PAPI (feat. Leto)', album: "SORRY I'M BAD", year: '2026', streams: '6,8M vues YouTube', sourceLabel: 'YouTube (relevé 20/09/2026)', source: LINKS.youngRichPapi, videoId: VIDEOS.YOUNG_RICH_PAPI },
+  { title: 'YOUP*RN', album: 'Single', year: '2026', streams: '1M+ vues en 3 jours · n°1 tendances FR & CA', sourceLabel: 'Bénin Web TV (18/09/2026)', source: LINKS.beninWebTv, videoId: VIDEOS.YOUPRN },
 ];
 
 export const GEMS = [
@@ -475,23 +685,26 @@ export const TROPHIES = [
 // ---------- Agenda concerts ----------
 export const CONCERTS = [
   { date: '26 DÉC 2024', city: 'Abidjan', venue: 'Parc des Expositions', country: 'CI', past: true, source: LINKS.connectionIvoirienne },
-  { date: '01 OCT 2025', city: 'Paris', venue: 'Cabaret Sauvage', country: 'FR', past: true, source: LINKS.tikerama },
-  { date: '28 JAN 2026', city: 'Paris', venue: 'Zénith Paris – La Villette', country: 'FR', past: true, source: LINKS.instagram },
+  { date: '15 FÉV 2025', city: 'Yopougon', venue: 'Stade de la BAE', country: 'CI', past: true, source: LINKS.abidjanNetBae },
+  { date: '01 OCT 2025', city: 'Paris', venue: 'Cabaret Sauvage — complet en 10 jours', country: 'FR', past: true, source: LINKS.ticketliveMadeleine },
+  { date: '28 JAN 2026', city: 'Paris', venue: 'Zénith Paris – La Villette « NOUVEAU BOSS »', country: 'FR', past: true, source: LINKS.sortirAParis },
   { date: '21 JUIN 2026', city: 'New York', venue: 'Gramercy Theatre', country: 'US', past: true, source: LINKS.tikerama },
   { date: '28 JUIN 2026', city: 'Washington', venue: 'Union Stage', country: 'US', past: true, source: LINKS.tikerama },
   { date: 'JUIL 2026', city: 'Dour', venue: 'Dour Festival', country: 'BE', past: true, source: 'https://www.dourfestival.eu' },
-  { date: '2026', city: 'Luxembourg', venue: 'Rockhal', country: 'LU', past: true, source: 'https://www.rockhal.lu' },
+  { date: '17 SEPT 2026', city: 'Bruxelles', venue: 'La Madeleine', country: 'BE', past: true, source: LINKS.shangoMadeleine },
+  { date: '18 SEPT 2026', city: 'Esch-sur-Alzette', venue: 'Rockhal Main Hall', country: 'LU', past: true, source: LINKS.concerts50Rockhal },
   { date: '26 DÉC 2026', city: 'Ébimpé', venue: 'Stade Olympique Alassane Ouattara — 14h · objectif 60 000', country: 'CI', past: false, source: LINKS.tikerama },
 ];
 
 // ---------- Fallback flux vidéo (remplacé en direct par le RSS YouTube) ----------
+// Vues relevées le 20/09/2026 (Return YouTube Dislike) — remplacées en direct par le flux RSS.
 export const LATEST_VIDEOS_FALLBACK = [
-  { id: VIDEOS.NOSTALGIE, title: 'HIMRA - NOSTALGIE (Official Music Video)', published: '2026-03-16T00:00:00Z', views: 13000000, thumb: YTHQ(VIDEOS.NOSTALGIE), url: LINKS.nostalgie },
-  { id: VIDEOS.BARA_BARA, title: 'HIMRA - BARA BARA (OFFICIAL CLIP)', published: '2023-05-15T00:00:00Z', views: 14000000, thumb: YTHQ(VIDEOS.BARA_BARA), url: LINKS.baraBara },
-  { id: VIDEOS.NAIGAIDJAN, title: 'HIMRA - NAIGAIDJAN (OFFICIAL MUSIC VIDEO)', published: '2025-06-01T00:00:00Z', views: 1400000, thumb: YTHQ(VIDEOS.NAIGAIDJAN), url: LINKS.naigaidjan },
-  { id: VIDEOS.DE_TEMPS_EN_TEMPS, title: 'HIMRA - DE TEMPS EN TEMPS (DALSHIM)', published: '2025-11-13T00:00:00Z', views: 900000, thumb: YTHQ(VIDEOS.DE_TEMPS_EN_TEMPS), url: LINKS.dalshim },
-  { id: VIDEOS.INCENDIE, title: 'HIMRA - incendie (JEUNE et RICHE DELUXE)', published: '2024-10-04T00:00:00Z', views: 5600000, thumb: YTHQ(VIDEOS.INCENDIE), url: `https://www.youtube.com/watch?v=${VIDEOS.INCENDIE}` },
-  { id: VIDEOS.SOLO, title: 'HIMRA - SOLO (JEUNE & RICHE)', published: '2024-07-25T00:00:00Z', views: 1200000, thumb: YTHQ(VIDEOS.SOLO), url: `https://www.youtube.com/watch?v=${VIDEOS.SOLO}` },
+  { id: VIDEOS.YOUPRN, title: 'HIMRA - YOUP*RN', published: '2026-09-16T23:45:00Z', views: 1019658, thumb: YTHQ(VIDEOS.YOUPRN), url: LINKS.youprn },
+  { id: VIDEOS.BARA_BARA, title: 'HIMRA - BARA BARA (CLIP OFFICIEL)', published: '2026-05-15T00:00:00Z', views: 13606394, thumb: YTHQ(VIDEOS.BARA_BARA), url: LINKS.baraBara },
+  { id: VIDEOS.YOUNG_RICH_PAPI, title: 'HIMRA - YOUNG RICH PAPI Feat LETO (Clip Officiel)', published: '2026-06-04T00:00:00Z', views: 6813918, thumb: YTHQ(VIDEOS.YOUNG_RICH_PAPI), url: LINKS.youngRichPapi },
+  { id: VIDEOS.NOSTALGIE, title: 'HIMRA - NOSTALGIE (Clip Officiel)', published: '2026-03-16T00:00:00Z', views: 13065886, thumb: YTHQ(VIDEOS.NOSTALGIE), url: LINKS.nostalgie },
+  { id: VIDEOS.LEGENDES, title: 'La Fouine & HIMRA - LÉGENDES (Clip Officiel)', published: '2025-09-27T00:00:00Z', views: 23689880, thumb: YTHQ(VIDEOS.LEGENDES), url: LINKS.legendes },
+  { id: VIDEOS.NAIGAIDJAN, title: 'HIMRA - NAIGAIDJAN (OFFICIAL MUSIC VIDEO)', published: '2025-06-01T00:00:00Z', views: 1495940, thumb: YTHQ(VIDEOS.NAIGAIDJAN), url: LINKS.naigaidjan },
 ];
 
 // ---------- Lexique nouchi ----------
@@ -514,6 +727,9 @@ export const NOUCHI = [
 
 // ---------- Presse & médias ----------
 export const PRESS = [
+  { media: 'Bénin Web TV', title: '« Himra place YOUP*RN n°1 des tendances YouTube en France et au Canada »', date: '18 sept. 2026', url: LINKS.beninWebTv },
+  { media: 'Shango Média', title: '« Himra à La Madeleine de Bruxelles — 9 titres dans le top 10 Apple Music CI »', date: '17 sept. 2026', url: LINKS.shangoMadeleine },
+  { media: 'Hip Hop Corner', title: '« LÉGENDES de La Fouine et Himra dépasse les 8 millions de vues en un mois »', date: '30 oct. 2025', url: LINKS.hiphopcornerLegendes },
   { media: 'Le Monde Afrique', title: '« En Côte d\'Ivoire, le rappeur Himra parle à la rue, chante la galère et la hargne en nouchi hardcore »', date: '15 mars 2025', url: LINKS.leMonde },
   { media: 'Connection Ivoirienne', title: '« Le jeune rappeur ivoirien Himra touche le sommet mondial »', date: '28 déc. 2024', url: LINKS.connectionIvoirienne },
   { media: 'Afrique-sur7', title: '« Himra, l\'étoile montante de la drill ivoire qui bouscule les codes de la musique africaine »', date: '2024', url: LINKS.afriqueSur7 },
@@ -548,6 +764,89 @@ export const QUIZ = [
     q: 'Que signifie « Chete », le nom des fans ?',
     options: ['Champion', 'Machette', 'Chef'],
     answer: 1,
+  },
+];
+
+// ---------- Lifestyle : styles décryptés + garage ----------
+// Styles : d'après l'article Pulse CI « Mode : 5 styles d'Himra Saiyen à décrypter » (22 juil. 2025).
+// Prix : estimations boutiques publiques, jamais des chiffres confirmés par l'artiste.
+export const LIFESTYLE_STYLES = [
+  {
+    title: 'Le « Nouveau Boss »',
+    img: PHOTOS.zenithPoster.src,
+    desc: "Manteau de fourrure grise, lunettes noires, diamants aux poignets : l'imagerie assumée de l'affiche du Zénith 2026. Le boss, version Drill Ivoire.",
+    pieces: [
+      { nom: 'Manteau de fourrure oversize', prix: '≈ 800 000 – 2 000 000 FCFA', confirme: false },
+      { nom: 'Lunettes noires oversize', prix: '≈ 150 000 – 400 000 FCFA', confirme: false },
+      { nom: 'Bracelets diamantés', prix: 'non communiqué', confirme: false },
+    ],
+    credit: PHOTOS.zenithPoster.credit,
+    source: LINKS.sortirAParis,
+    sourceLabel: 'Affiche officielle — Sortir à Paris',
+    accent: '#8a8f98',
+  },
+  {
+    title: 'Roi sur trône doré',
+    img: PHOTOS.trone.src,
+    desc: "Torse nu, silhouette sculptée, montre de luxe et chaînes visibles, sur un trône doré baigné de rouge : la séance photo la plus iconique de l'ère Saiyen. Pulse CI le résume : « torse nu et toujours charmant ».",
+    pieces: [
+      { nom: 'Montre de luxe (poignet gauche)', prix: 'non communiqué', confirme: false },
+      { nom: 'Chaînes et pendentif « 1X »', prix: 'non communiqué', confirme: false },
+      { nom: 'Bagues et bracelets', prix: 'non communiqué', confirme: false },
+    ],
+    credit: PHOTOS.trone.credit,
+    source: LINKS.tcoprod,
+    sourceLabel: 'TCO Prod — photo officielle',
+    accent: '#d4a437',
+  },
+  {
+    title: 'Streetwear 1X — la base',
+    img: PHOTOS.signe1x.src,
+    desc: "T-shirts oversize, bombers, jeans larges, cagoules, chaînes argentées XXL, casquettes fonctionnelles et le collier « 1X » — « une fois chette ». Le portrait stylistique dressé par Pulse CI.",
+    pieces: [
+      { nom: 'Collier « 1X » signature', prix: 'pièce unique — non communiqué', confirme: false },
+      { nom: 'Chaînes argentées XXL', prix: '≈ 100 000 – 500 000 FCFA', confirme: false },
+      { nom: 'Cagoule 1X', prix: 'merch du mouvement', confirme: false },
+    ],
+    credit: PHOTOS.signe1x.credit,
+    source: LINKS.pulseStyles,
+    sourceLabel: 'Pulse CI — 5 styles décryptés',
+    accent: '#c8102e',
+  },
+  {
+    title: 'Égérie « Ici c\'est Paris » (PSG)',
+    img: PHOTOS.stage.src,
+    desc: "En 2025, Himra devient l'une des égéries de la marque « Ici c'est Paris » du Paris Saint-Germain — le streetwear ivoirien qui s'affiche aux couleurs du club de la capitale (Hip Hop Corner).",
+    pieces: [
+      { nom: 'Collection « Ici c\'est Paris »', prix: 'collection PSG en boutique', confirme: true },
+    ],
+    credit: PHOTOS.stage.credit,
+    source: LINKS.hiphopcornerPsg,
+    sourceLabel: 'Hip Hop Corner',
+    accent: '#1a3a6e',
+  },
+];
+
+export const LIFESTYLE_CARS = [
+  {
+    nom: 'Lamborghini Urus',
+    img: PHOTOS.urusIllustration.src,
+    desc: "En mars 2025, Himra affiche sur Snapchat une Lamborghini Urus estimée par la presse people à près de 200 millions de FCFA, puis présente le reçu officiel d'achat pour faire taire les rumeurs. Il serait le premier rappeur ivoirien à en posséder une.",
+    prix: '≈ 200 000 000 FCFA (estimation presse)',
+    confirme: false,
+    credit: PHOTOS.urusIllustration.credit,
+    source: LINKS.rapKingTiktok,
+    sourceLabel: 'Rap King (TikTok) — mars 2025',
+  },
+  {
+    nom: 'Maison + deux voitures « en moins de 2 ans »',
+    img: PHOTOS.parcExpo.src,
+    desc: "En janvier 2025, des comptes spécialisés relaient des images où Himra montre sa maison et deux voitures acquises « en moins de deux ans avec l'argent du Rap Ivoire ». Modèles et montants non confirmés officiellement.",
+    prix: 'montants non communiqués',
+    confirme: false,
+    credit: 'Images relayées par les comptes fans — non vérifiées indépendamment',
+    source: LINKS.rapKingTiktok,
+    sourceLabel: 'Rap King (TikTok) — janv. 2025',
   },
 ];
 

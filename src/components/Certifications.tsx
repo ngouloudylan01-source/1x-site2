@@ -111,13 +111,13 @@ export default function Certifications() {
           <div className="group relative rounded-sm overflow-hidden border-2 border-gold-400/30 shadow-3d-deep">
             <img
               src={PHOTOS.heroTrophees.src}
-              alt="HIMRA posant avec ses trophées, bras croisés en signe 1X"
+              alt="HIMRA posant avec ses trophées en main"
               loading="lazy"
               className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
-              <p className="text-sm text-white font-semibold">Trophées en main, bras croisés — le signe 1X.</p>
+              <p className="text-sm text-white font-semibold">Trophées en main — le vrai signe 1X, lui, se fait uniquement avec les doigts.</p>
             </div>
             <SourceTooltip credit={PHOTOS.heroTrophees.credit} source={PHOTOS.heroTrophees.source} position="top" />
           </div>

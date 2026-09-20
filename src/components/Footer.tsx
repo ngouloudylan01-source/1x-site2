@@ -13,6 +13,8 @@ const SOCIALS = [
 const NAV = [
   { label: 'Parcours', href: '#parcours' },
   { label: 'Discographie', href: '#disco' },
+  { label: 'Classements 1→50', href: '#/charts' },
+  { label: 'Lifestyle & garage', href: '#/lifestyle' },
   { label: 'Stats en direct', href: '#stats' },
   { label: 'Actualités', href: '#actus' },
   { label: 'Certifications', href: '#certifs' },

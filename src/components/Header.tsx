@@ -6,10 +6,10 @@ const NAV_LINKS = [
   { label: 'Accueil', href: '#hero' },
   { label: 'Parcours', href: '#parcours' },
   { label: 'Discographie', href: '#disco' },
-  { label: 'Live & Stats', href: '#stats' },
+  { label: 'Charts', href: '#/charts' },
+  { label: 'Lifestyle', href: '#/lifestyle' },
   { label: 'Actualités', href: '#actus' },
   { label: 'Certifications', href: '#certifs' },
-  { label: 'Bio', href: '#bio' },
 ];
 
 export default function Header() {

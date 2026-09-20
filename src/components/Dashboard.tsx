@@ -61,11 +61,11 @@ function StatCard({
 export default function Dashboard() {
   const { artist, live: artistLive } = useDeezerArtist();
   const { tracks, live: tracksLive } = useDeezerTopTracks(5);
-  const { stats, live: ytLive } = useYouTubeStats([VIDEOS.BARA_BARA, VIDEOS.NOSTALGIE, VIDEOS.INCENDIE]);
+  const { stats, live: ytLive } = useYouTubeStats([VIDEOS.YOROBO_3, VIDEOS.LEGENDES, VIDEOS.BARA_BARA]);
 
+  const yorobo = stats[VIDEOS.YOROBO_3];
+  const legendes = stats[VIDEOS.LEGENDES];
   const bara = stats[VIDEOS.BARA_BARA];
-  const nostalgie = stats[VIDEOS.NOSTALGIE];
-  const incendie = stats[VIDEOS.INCENDIE];
   const maxRank = tracks.length ? Math.max(...tracks.map((t) => t.rank)) : 1;
   const upcoming = CONCERTS.filter((c) => !c.past);
   const past = CONCERTS.filter((c) => c.past);
@@ -83,9 +83,9 @@ export default function Dashboard() {
 
         {/* Grille stats */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-          <StatCard platform="YouTube" label="Vues BARA BARA (Official Clip)" value="14M+" raw={bara?.viewCount} sub={bara ? `${formatCompact(bara.likes)} likes` : undefined} live={ytLive && !!bara} href={LINKS.baraBara} />
-          <StatCard platform="YouTube" label="Vues NOSTALGIE (Official Video)" value="13M+" raw={nostalgie?.viewCount} sub={nostalgie ? `${formatCompact(nostalgie.likes)} likes` : undefined} live={ytLive && !!nostalgie} href={LINKS.nostalgie} />
-          <StatCard platform="YouTube" label="Vues INCENDIE" value="5,6M" raw={incendie?.viewCount} sub={incendie ? `${formatCompact(incendie.likes)} likes` : undefined} live={ytLive && !!incendie} href={`https://www.youtube.com/watch?v=${VIDEOS.INCENDIE}`} />
+          <StatCard platform="YouTube" label="Vues YOROBO DRILL ACTE 3" value="28,9M" raw={yorobo?.viewCount} sub={yorobo ? `${formatCompact(yorobo.likes)} likes` : undefined} live={ytLive && !!yorobo} href={LINKS.yorobo3} />
+          <StatCard platform="YouTube" label="Vues LÉGENDES (avec La Fouine)" value="23,6M" raw={legendes?.viewCount} sub={legendes ? `${formatCompact(legendes.likes)} likes` : undefined} live={ytLive && !!legendes} href={LINKS.legendes} />
+          <StatCard platform="YouTube" label="Vues BARA BARA (Clip Officiel)" value="13,6M" raw={bara?.viewCount} sub={bara ? `${formatCompact(bara.likes)} likes` : undefined} live={ytLive && !!bara} href={LINKS.baraBara} />
           <StatCard platform="Deezer" label="Fans sur Deezer" value="52K" raw={artist?.nb_fan} sub={artist ? `${artist.nb_album} projets au catalogue` : undefined} live={artistLive} href={LINKS.deezer} />
           <StatCard platform="Spotify" label="Profil artiste vérifié" value="Écouter ↗" live={false} href={LINKS.spotify} />
           <StatCard platform="Apple Music" label="Discographie complète" value="Écouter ↗" live={false} href={LINKS.appleMusic} />

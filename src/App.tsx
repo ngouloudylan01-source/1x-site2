@@ -13,29 +13,42 @@ import Bio from '@/components/Bio';
 import Footer from '@/components/Footer';
 import FloatingPlayer from '@/components/FloatingPlayer';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import ChartsPage from '@/pages/ChartsPage';
+import EventPage from '@/pages/EventPage';
+import LifestylePage from '@/pages/LifestylePage';
+import { useRoute } from '@/lib/router';
 
 // Structure du site (§6) :
-// Hero → Parcours → Événements → Discographie → Hits & pépites →
+// Accueil : Hero → Parcours → Événements → Discographie → Hits & pépites →
 // Tableau de bord live → Actualités → Featurings → Certifications & trophées →
 // Communauté 1X ULTRA → Biographie → Pied de page (emblème EN GANG)
+// Pages : #/charts (classements 1–50), #/lifestyle (styles & garage),
+// #/evenement/:id (détail d'un événement).
 function App() {
+  const route = useRoute();
+
   return (
     <ErrorBoundary>
       <div className="bg-anthracite-950 min-h-screen">
         <Header />
-        <main>
-          <Hero />
-          <Timeline />
-          <EventsCarousel />
-          <Discography />
-          <Hits />
-          <Dashboard />
-          <News />
-          <Featurings />
-          <Certifications />
-          <Community />
-          <Bio />
-        </main>
+        {route.page === 'charts' && <ChartsPage />}
+        {route.page === 'lifestyle' && <LifestylePage />}
+        {route.page === 'evenement' && <EventPage id={route.id} />}
+        {route.page === 'home' && (
+          <main>
+            <Hero />
+            <Timeline />
+            <EventsCarousel />
+            <Discography />
+            <Hits />
+            <Dashboard />
+            <News />
+            <Featurings />
+            <Certifications />
+            <Community />
+            <Bio />
+          </main>
+        )}
         <Footer />
         <FloatingPlayer />
       </div>

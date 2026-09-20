@@ -26,7 +26,7 @@ export default function EventsCarousel() {
         <SectionHead
           kicker="Moments marquants"
           title={<>LE DÉFILÉ DES <span style={{ color: accent }} className="transition-colors duration-500">ÉVÉNEMENTS</span></>}
-          desc="Concerts, clips, récompenses, moments clés. La couleur de la page s'accorde à chaque événement. Survolez une carte pour révéler sa source."
+          desc="TOUS les événements — concerts, clips, récompenses, moments clés. La couleur de la page s'accorde à chaque événement. Survolez pour la source, cliquez pour la page complète."
         />
 
         <div className="flex items-center justify-end gap-2 mb-5">
@@ -101,8 +101,19 @@ export default function EventsCarousel() {
                 </div>
 
                 <div className="mt-3 px-0.5">
-                  <h3 className="text-sm font-bold text-white leading-snug">{ev.title}</h3>
+                  <h3 className="text-sm font-bold text-white leading-snug">
+                    <a href={`#/evenement/${ev.id}`} className="hover:underline" style={{ textDecorationColor: ev.accent }}>
+                      {ev.title}
+                    </a>
+                  </h3>
                   <p className="mt-1.5 text-xs text-anthracite-300 leading-relaxed">{ev.desc}</p>
+                  <a
+                    href={`#/evenement/${ev.id}`}
+                    className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider transition-colors"
+                    style={{ color: ev.accent }}
+                  >
+                    Voir la page complète →
+                  </a>
                 </div>
               </article>
             );
