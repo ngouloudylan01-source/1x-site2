@@ -11,6 +11,23 @@ import { useEffect, useRef, useState } from 'react';
 export const DEEZER_ARTIST_ID = 11736133; // Himra (officiel) — 85 albums/singles
 export const YT_CHANNEL_ID = 'UCck5J0M6YKnXCrnuXkCFuvw'; // Himra officiel — chaîne vérifiée
 
+// ---------- Compat : AbortSignal.timeout n'existe pas sur tous les navigateurs ----------
+function safeTimeoutSignal(ms: number): AbortSignal | undefined {
+  try {
+    if (typeof AbortSignal !== 'undefined' && 'timeout' in AbortSignal) {
+      return AbortSignal.timeout(ms);
+    }
+    if (typeof AbortController !== 'undefined') {
+      const c = new AbortController();
+      window.setTimeout(() => c.abort(), ms);
+      return c.signal;
+    }
+  } catch {
+    // ignore — pas de signal, le fetch utilisera son timeout réseau natif
+  }
+  return undefined;
+}
+
 // ---------- JSONP helper (Deezer) ----------
 let jsonpCounter = 0;
 export function jsonp<T>(url: string, timeout = 9000): Promise<T> {
@@ -131,7 +148,7 @@ export function useYouTubeStats(videoIds: string[]) {
       ids.map(async (id) => {
         const r = await fetch(
           `https://returnyoutubedislikeapi.com/votes?videoId=${id}`,
-          { signal: AbortSignal.timeout(9000) }
+          { signal: safeTimeoutSignal(9000) }
         );
         if (!r.ok) throw new Error('bad status');
         const j = await r.json();
@@ -174,7 +191,7 @@ export function useLatestVideos(fallback: LatestVideo[]) {
     (async () => {
       for (const proxy of PROXIES) {
         try {
-          const r = await fetch(proxy(RSS_URL), { signal: AbortSignal.timeout(12000) });
+          const r = await fetch(proxy(RSS_URL), { signal: safeTimeoutSignal(12000) });
           if (!r.ok) continue;
           const xml = await r.text();
           const doc = new DOMParser().parseFromString(xml, 'text/xml');
