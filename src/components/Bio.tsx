@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { IMAGES, TIMELINE } from '@/data';
+import { PHOTOS, TIMELINE } from '@/data';
+import SourceTooltip from './SourceTooltip';
 
 export default function Bio() {
   const [activeYear, setActiveYear] = useState(0);
@@ -24,13 +25,14 @@ export default function Bio() {
           <div className="lg:col-span-2">
             <div className="sticky top-28">
               <div className="relative perspective-1000">
-                <div className="relative rounded-sm overflow-hidden border-2 border-blood-600/30 shadow-3d-deep">
-                  <img src={IMAGES.nostalgie} alt="HIMRA — NOSTALGIE (Official Video)" className="w-full object-cover" />
+                <div className="group relative rounded-sm overflow-hidden border-2 border-blood-600/30 shadow-3d-deep">
+                  <img src={PHOTOS.portraitLeMonde.src} alt="Himra à Abidjan — portrait Le Monde Afrique" className="w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
                     <p className="font-black-display text-2xl text-white">Abdul Rahim Bakayoko</p>
                     <p className="text-sm text-gold-400 font-display tracking-widest">HIMRA · Né le 28 mai 1998 · Cocody, Abidjan</p>
                   </div>
+                  <SourceTooltip credit={PHOTOS.portraitLeMonde.credit} source={PHOTOS.portraitLeMonde.source} position="top" />
                 </div>
                 {/* Corner accents */}
                 <div className="absolute -top-1 -left-1 w-8 h-8 border-l-2 border-t-2 border-blood-500" />
@@ -47,6 +49,32 @@ export default function Bio() {
                   l'emblème d'un mouvement entier. Ses fans se nomment <span className="text-blood-400 font-semibold">« Chete »</span> et
                   forment la communauté <span className="text-gold-400 font-semibold">1X ULTRA</span>.
                 </p>
+              </div>
+
+              {/* Photo des débuts + anecdotes exclusives */}
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="group relative rounded-sm overflow-hidden border border-white/10">
+                  <img src={PHOTOS.debuts.src} alt="Himra à ses débuts" className="w-full h-36 object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/90 to-transparent" />
+                  <span className="absolute bottom-2 left-2 text-[10px] font-display tracking-widest text-white/80 uppercase">Les débuts</span>
+                  <SourceTooltip credit={PHOTOS.debuts.credit} source={PHOTOS.debuts.source} position="top" />
+                </div>
+                <div className="group relative rounded-sm overflow-hidden border border-white/10">
+                  <img src={PHOTOS.fansCagoule.src} alt="Fans avec cagoules 1X" className="w-full h-36 object-cover" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/90 to-transparent" />
+                  <span className="absolute bottom-2 left-2 text-[10px] font-display tracking-widest text-white/80 uppercase">La commu « Chete »</span>
+                  <SourceTooltip credit={PHOTOS.fansCagoule.credit} source={PHOTOS.fansCagoule.source} position="top" />
+                </div>
+              </div>
+
+              <div className="mt-6 glass rounded-sm p-5 border-l-2 border-gold-400">
+                <p className="text-xs font-display tracking-[0.3em] uppercase text-gold-400 mb-2">Le saviez-vous ?</p>
+                <ul className="space-y-2 text-xs text-anthracite-200 leading-relaxed list-disc list-inside">
+                  <li>« Chete » (machette en nouchi) donne son nom aux fans — d'où les deux machettes croisées de l'emblème.</li>
+                  <li>Ses cagoules « 1X » brodées sont devenues un accessoire culte dans les concerts d'Abidjan.</li>
+                  <li>Le Monde Afrique lui a consacré un portrait en mars 2025 : « il parle à la rue en nouchi hardcore ».</li>
+                  <li>Sa chaîne YouTube cumule plus de 440 millions de vues pour 87 vidéos.</li>
+                </ul>
               </div>
             </div>
           </div>

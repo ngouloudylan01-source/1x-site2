@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { Play, Pause, ExternalLink, Lock, Headphones } from 'lucide-react';
-import { HITS, RARE_TRACKS, FEATURING_RUMORS, TEASERS } from '@/data';
+import { HITS, RARE_TRACKS, FEATURING_RUMORS, TEASERS, ALBUMS } from '@/data';
 
-type Tab = 'hits' | 'rare' | 'rumors' | 'teasers';
+type Tab = 'albums' | 'hits' | 'rare' | 'rumors' | 'teasers';
 
 export default function Discography() {
-  const [tab, setTab] = useState<Tab>('hits');
+  const [tab, setTab] = useState<Tab>('albums');
   const [playing, setPlaying] = useState<number | null>(null);
 
   const tabs: { id: Tab; label: string }[] = [
+    { id: 'albums', label: 'Albums' },
     { id: 'hits', label: 'Hits' },
     { id: 'rare', label: 'Morceaux Rares' },
     { id: 'rumors', label: 'Featurings & Rumeurs' },
@@ -52,6 +53,52 @@ export default function Discography() {
         </div>
 
         {/* Content */}
+        {tab === 'albums' && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {ALBUMS.map((album, idx) => (
+              <a
+                key={idx}
+                href={album.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div
+                  className="relative aspect-square rounded-sm overflow-hidden border border-white/10 transition-all duration-500 group-hover:scale-[1.03] card-3d"
+                  style={{ boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.boxShadow = `0 0 30px ${album.color}40`)}
+                  onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 10px 40px rgba(0,0,0,0.5)')}
+                >
+                  <img
+                    src={album.cover}
+                    alt={`Pochette officielle — ${album.title}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div
+                    className="absolute top-2 left-2 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide rounded-sm"
+                    style={{ background: `${album.color}cc`, color: '#fff' }}
+                  >
+                    {album.type}
+                  </div>
+                  {/* Tooltip source */}
+                  <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-all">
+                    <span className="flex items-center gap-1 text-[10px] text-white/80">
+                      <ExternalLink className="w-3 h-3 text-blood-400" /> Pochette officielle · Deezer
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-2.5 px-0.5">
+                  <h4 className="text-sm font-bold text-white leading-snug line-clamp-1">{album.title}</h4>
+                  <p className="text-xs text-anthracite-400 mt-0.5">{album.year}</p>
+                  <p className="text-[11px] text-anthracite-300 mt-1 leading-snug line-clamp-2">{album.note}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+
         {tab === 'hits' && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {HITS.map((track, idx) => (

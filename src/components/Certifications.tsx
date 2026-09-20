@@ -1,9 +1,10 @@
-import { Award, ExternalLink } from 'lucide-react';
-import { CERTIFICATIONS } from '@/data';
+import { Award, ExternalLink, Trophy } from 'lucide-react';
+import { CERTIFICATIONS, PHOTOS, LINKS } from '@/data';
+import SourceTooltip from './SourceTooltip';
 
 export default function Certifications() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden bg-gradient-to-b from-anthracite-900 via-anthracite-950 to-black">
+    <section id="awards" className="relative py-24 sm:py-32 overflow-hidden bg-gradient-to-b from-anthracite-900 via-anthracite-950 to-black">
       <div className="absolute inset-0 bg-noise opacity-40" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
 
@@ -24,7 +25,7 @@ export default function Certifications() {
         </div>
 
         {/* Certifications showcase */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {CERTIFICATIONS.map((cert, idx) => (
             <div
               key={idx}
@@ -42,6 +43,7 @@ export default function Certifications() {
                   <img
                     src={cert.img}
                     alt={cert.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950 via-anthracite-950/50 to-transparent" />
@@ -86,90 +88,88 @@ export default function Certifications() {
           ))}
         </div>
 
-        {/* ===== ICONIC CLOSING: CROSSED MACHETTES + EN GANG ===== */}
+        {/* ===== Photos réelles : HIMRA trophées en main ===== */}
+        <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-4xl mx-auto">
+          <div className="group relative rounded-sm overflow-hidden border-2 border-gold-400/30 shadow-3d-deep">
+            <img
+              src={PHOTOS.heroTrophees.src}
+              alt="HIMRA posant avec ses trophées, bras croisés en signe 1X"
+              loading="lazy"
+              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="flex items-center gap-2 mb-1">
+                <Trophy className="w-4 h-4 text-gold-400" />
+                <span className="font-display text-sm tracking-widest text-gold-400 uppercase">Trophées en main</span>
+              </div>
+              <p className="text-sm text-white font-semibold">
+                HIMRA pose avec ses récompenses, bras croisés — le signe 1X.
+              </p>
+            </div>
+            <SourceTooltip credit={PHOTOS.heroTrophees.credit} source={PHOTOS.heroTrophees.source} position="top" />
+          </div>
+
+          <div className="group relative rounded-sm overflow-hidden border-2 border-blood-600/30 shadow-3d-deep">
+            <img
+              src={PHOTOS.parcExpo.src}
+              alt="Himra devant la foule du Parc des Expositions d'Abidjan"
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="flex items-center gap-2 mb-1">
+                <Award className="w-4 h-4 text-blood-400" />
+                <span className="font-display text-sm tracking-widest text-blood-400 uppercase">Le sacre du public</span>
+              </div>
+              <p className="text-sm text-white font-semibold">
+                Parc des Expositions d'Abidjan, complet — décembre 2024.
+              </p>
+            </div>
+            <SourceTooltip credit={PHOTOS.parcExpo.credit} source={PHOTOS.parcExpo.source} position="top" />
+          </div>
+        </div>
+
+        {/* ===== CLÔTURE ICONIQUE : GROSSES MACHETTES CROISÉES + EN GANG ===== */}
         <div className="relative flex flex-col items-center pt-8 pb-4">
           {/* Divider line */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-blood-600 to-transparent" />
 
-          {/* Crossed machettes */}
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 mb-8 flex items-center justify-center">
-            {/* Glow behind */}
+          {/* Gros visuel machettes croisées */}
+          <div className="relative w-full max-w-3xl mb-2">
             <div className="absolute inset-0 rounded-full blur-3xl bg-blood-600/20 animate-pulse-glow" />
-
-            {/* Machette SVG - crossed pair */}
-            <svg
-              viewBox="0 0 200 200"
-              className="relative w-full h-full drop-shadow-[0_0_20px_rgba(200,16,46,0.5)]"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Machette 1 - diagonal left to right */}
-              <g transform="rotate(45 100 100)">
-                {/* Blade */}
-                <path
-                  d="M30 95 L150 92 L160 100 L150 108 L30 105 Z"
-                  fill="url(#bladeGrad)"
-                  stroke="#c0c0c0"
-                  strokeWidth="1"
-                />
-                {/* Blade shine */}
-                <path d="M35 98 L145 96 L145 99 L35 101 Z" fill="#ffffff" opacity="0.3" />
-                {/* Handle */}
-                <rect x="18" y="93" width="14" height="14" rx="2" fill="#2a2a2e" stroke="#5a451f" strokeWidth="1.5" />
-                {/* Handle wrap */}
-                <line x1="20" y1="93" x2="20" y2="107" stroke="#c9a84c" strokeWidth="1" opacity="0.6" />
-                <line x1="24" y1="93" x2="24" y2="107" stroke="#c9a84c" strokeWidth="1" opacity="0.6" />
-                <line x1="28" y1="93" x2="28" y2="107" stroke="#c9a84c" strokeWidth="1" opacity="0.6" />
-              </g>
-
-              {/* Machette 2 - diagonal right to left */}
-              <g transform="rotate(-45 100 100)">
-                {/* Blade */}
-                <path
-                  d="M30 95 L150 92 L160 100 L150 108 L30 105 Z"
-                  fill="url(#bladeGrad)"
-                  stroke="#c0c0c0"
-                  strokeWidth="1"
-                />
-                {/* Blade shine */}
-                <path d="M35 98 L145 96 L145 99 L35 101 Z" fill="#ffffff" opacity="0.3" />
-                {/* Handle */}
-                <rect x="18" y="93" width="14" height="14" rx="2" fill="#2a2a2e" stroke="#5a451f" strokeWidth="1.5" />
-                {/* Handle wrap */}
-                <line x1="20" y1="93" x2="20" y2="107" stroke="#c9a84c" strokeWidth="1" opacity="0.6" />
-                <line x1="24" y1="93" x2="24" y2="107" stroke="#c9a84c" strokeWidth="1" opacity="0.6" />
-                <line x1="28" y1="93" x2="28" y2="107" stroke="#c9a84c" strokeWidth="1" opacity="0.6" />
-              </g>
-
-              {/* Center rivet */}
-              <circle cx="100" cy="100" r="5" fill="#c9a84c" stroke="#5a451f" strokeWidth="1" />
-              <circle cx="100" cy="100" r="2" fill="#5a451f" />
-
-              <defs>
-                <linearGradient id="bladeGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#3a3a3e" />
-                  <stop offset="30%" stopColor="#c0c0c0" />
-                  <stop offset="50%" stopColor="#e8e8e8" />
-                  <stop offset="70%" stopColor="#a0a0a0" />
-                  <stop offset="100%" stopColor="#5a5a5e" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <img
+              src="/media/machettes-en-gang.png"
+              alt="Deux machettes croisées — emblème 1X"
+              className="relative w-full h-auto drop-shadow-[0_0_40px_rgba(200,16,46,0.45)] select-none"
+              style={{
+                maskImage: 'radial-gradient(ellipse 75% 70% at 50% 50%, black 55%, transparent 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 75% 70% at 50% 50%, black 55%, transparent 100%)',
+              }}
+              draggable={false}
+            />
           </div>
 
           {/* EN GANG text */}
-          <div className="relative text-center">
-            {/* Glow */}
+          <div className="relative text-center -mt-6 sm:-mt-10">
             <div className="absolute inset-0 blur-3xl bg-blood-600/20" />
-
             <h2 className="relative font-black-display text-6xl sm:text-8xl md:text-9xl text-white text-glow-red leading-none tracking-tight">
               EN GANG
             </h2>
-            <div className="mt-2 flex items-center justify-center gap-3">
+            <div className="mt-3 flex items-center justify-center gap-3">
               <span className="h-px w-16 bg-gradient-to-r from-transparent to-blood-500" />
               <span className="font-display text-sm tracking-[0.5em] text-gold-400 uppercase">1X · Toujours</span>
               <span className="h-px w-16 bg-gradient-to-l from-transparent to-blood-500" />
             </div>
+            <a
+              href={LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-blood-600 hover:bg-blood-500 text-white text-sm font-semibold rounded-sm glow-red transition-all hover:scale-105"
+            >
+              Rejoindre le mouvement
+            </a>
           </div>
         </div>
       </div>

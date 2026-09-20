@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
-import { IMAGES, CAROUSEL_EVENTS } from '@/data';
+import { PHOTOS, CAROUSEL_EVENTS, VIDEOS, LINKS } from '@/data';
+import { useDeezerArtist, useYouTubeStats, formatCompact } from '@/lib/live';
+import SourceTooltip from './SourceTooltip';
 
 export default function Hero() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -9,9 +11,23 @@ export default function Hero() {
 
   const activeEvent = CAROUSEL_EVENTS[activeIdx];
 
+  // Stats réelles en direct
+  const { artist } = useDeezerArtist();
+  const { stats } = useYouTubeStats([VIDEOS.BARA_BARA, VIDEOS.NOSTALGIE]);
+  const baraViews = stats[VIDEOS.BARA_BARA]?.viewCount;
+  const nostalgieViews = stats[VIDEOS.NOSTALGIE]?.viewCount;
+
   useEffect(() => {
     setAccentColor(activeEvent.accent);
   }, [activeIdx, activeEvent.accent]);
+
+  // Défilement automatique du carrousel toutes les 5s
+  useEffect(() => {
+    const t = setInterval(() => {
+      setActiveIdx((i) => (i + 1) % CAROUSEL_EVENTS.length);
+    }, 5000);
+    return () => clearInterval(t);
+  }, []);
 
   const scroll = (dir: 'left' | 'right') => {
     const container = scrollRef.current;
@@ -51,7 +67,7 @@ export default function Hero() {
       </div>
 
       {/* Top tag */}
-      <div className="relative z-10 mt-20 mb-6 flex items-center gap-3 animate-slide-up">
+      <div className="relative z-10 mt-24 mb-6 flex items-center gap-3 animate-slide-up">
         <span className="h-px w-12" style={{ background: accentColor }} />
         <span className="text-xs font-display tracking-[0.4em] uppercase text-anthracite-300">
           Site Officiel · Côte d'Ivoire
@@ -69,9 +85,9 @@ export default function Hero() {
         </span>
       </h1>
 
-      {/* Central image with 3D float */}
-      <div className="relative z-10 mt-10 mb-8 perspective-2000">
-        <div className="relative animate-float-3d">
+      {/* Central image — HIMRA faisant son signe 1X, trophées en main (photo réelle) */}
+      <div className="relative z-10 mt-10 mb-6 perspective-2000">
+        <div className="relative animate-float-3d group">
           {/* Glow ring behind */}
           <div
             className="absolute inset-0 rounded-full blur-2xl scale-110 transition-all duration-1000"
@@ -79,13 +95,13 @@ export default function Hero() {
           />
           {/* Image frame */}
           <div
-            className="relative w-56 h-72 sm:w-72 sm:h-96 md:w-80 md:h-[28rem] rounded-sm overflow-hidden border-2 transition-all duration-700"
+            className="relative w-64 h-80 sm:w-80 sm:h-[26rem] md:w-96 md:h-[30rem] rounded-sm overflow-hidden border-2 transition-all duration-700"
             style={{ borderColor: accentColor, boxShadow: `0 0 40px ${accentColor}50, 0 20px 60px rgba(0,0,0,0.8)` }}
           >
             <img
-              src={IMAGES.hero}
-              alt="HIMRA — BARA BARA (Clip Officiel)"
-              className="w-full h-full object-cover"
+              src={PHOTOS.heroTrophees.src}
+              alt="HIMRA, bras croisés en signe 1X, trophées en main"
+              className="w-full h-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950 via-transparent to-transparent" />
             <div
@@ -99,11 +115,65 @@ export default function Hero() {
             <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2" style={{ borderColor: accentColor }} />
             {/* Label */}
             <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-              <span className="text-xs font-display tracking-widest text-white/80">SIGNÉ 1X</span>
+              <span className="text-xs font-display tracking-widest text-white/80">LE SIGNE 1X · TROPHÉES EN MAIN</span>
               <span className="text-xs font-mono text-white/60">©2026</span>
             </div>
+            {/* Tooltip source */}
+            <SourceTooltip credit={PHOTOS.heroTrophees.credit} source={PHOTOS.heroTrophees.source} position="top" />
           </div>
         </div>
+      </div>
+
+      {/* Live stat badges — vraies données en direct */}
+      <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 mb-6 animate-slide-up" style={{ animationDelay: '0.25s' }}>
+        <a
+          href={LINKS.baraBara}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glass px-4 py-2 rounded-sm flex items-center gap-2 hover:border-blood-500/40 transition-all"
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
+          </span>
+          <span className="text-xs text-anthracite-300">BARA BARA</span>
+          <span className="text-sm font-black-display text-white">
+            {baraViews ? formatCompact(baraViews) : '14M+'}
+          </span>
+          <span className="text-[10px] text-anthracite-400 uppercase">vues YouTube</span>
+        </a>
+        <a
+          href={LINKS.nostalgie}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glass px-4 py-2 rounded-sm flex items-center gap-2 hover:border-blood-500/40 transition-all"
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
+          </span>
+          <span className="text-xs text-anthracite-300">NOSTALGIE</span>
+          <span className="text-sm font-black-display text-white">
+            {nostalgieViews ? formatCompact(nostalgieViews) : '13M+'}
+          </span>
+          <span className="text-[10px] text-anthracite-400 uppercase">vues YouTube</span>
+        </a>
+        <a
+          href={LINKS.deezer}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glass px-4 py-2 rounded-sm flex items-center gap-2 hover:border-gold-400/40 transition-all"
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold-400" />
+          </span>
+          <span className="text-xs text-anthracite-300">Deezer</span>
+          <span className="text-sm font-black-display text-white">
+            {artist ? formatCompact(artist.nb_fan) : '52K'}
+          </span>
+          <span className="text-[10px] text-anthracite-400 uppercase">fans · live</span>
+        </a>
       </div>
 
       {/* Tagline */}
@@ -129,7 +199,7 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Interactive carousel */}
+      {/* Interactive carousel — événements marquants (photos réelles) */}
       <div className="relative z-10 w-full max-w-7xl px-4 sm:px-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-display text-lg tracking-widest text-white/80 uppercase">
@@ -139,12 +209,14 @@ export default function Hero() {
             <button
               onClick={() => scroll('left')}
               className="w-9 h-9 flex items-center justify-center border border-white/15 text-white/70 hover:text-white hover:border-white/40 transition-all rounded-sm"
+              aria-label="Précédent"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll('right')}
               className="w-9 h-9 flex items-center justify-center border border-white/15 text-white/70 hover:text-white hover:border-white/40 transition-all rounded-sm"
+              aria-label="Suivant"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -171,6 +243,7 @@ export default function Hero() {
                 <img
                   src={event.img}
                   alt={event.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950 via-anthracite-950/40 to-transparent" />
@@ -181,16 +254,16 @@ export default function Hero() {
                   {event.date}
                 </div>
 
-                {/* Hover tooltip with source */}
+                {/* Info-bulle de source (traçabilité) */}
                 <div className="absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-all duration-300 bg-anthracite-950/80 p-3">
                   <a
                     href={event.source}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-white/80 hover:text-white"
+                    className="flex items-start gap-1.5 text-xs text-white/80 hover:text-white"
                   >
-                    <ExternalLink className="w-3 h-3" />
-                    Voir la source
+                    <ExternalLink className="w-3 h-3 mt-0.5 flex-shrink-0 text-blood-400" />
+                    <span className="leading-snug">{event.credit}</span>
                   </a>
                 </div>
               </div>

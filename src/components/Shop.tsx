@@ -39,16 +39,14 @@ export default function Shop() {
                 {/* Noise texture */}
                 <div className="absolute inset-0 bg-noise opacity-30" />
 
-                {/* 1X logo big */}
-                <div className="relative z-10 flex flex-col items-center gap-3">
-                  <div
-                    className="flex items-center justify-center w-20 h-20 clip-angular transition-transform duration-500 group-hover:scale-110"
-                    style={{ background: `linear-gradient(135deg, ${item.color}, ${item.color}aa)`, boxShadow: `0 0 30px ${item.color}40` }}
-                  >
-                    <span className="font-black-display text-3xl text-white">1X</span>
-                  </div>
-                  <span className="font-display text-sm tracking-[0.3em] text-white/50 uppercase">EN GANG</span>
-                </div>
+                {/* Visuel produit */}
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/80 via-transparent to-transparent" />
 
                 {/* Decorative machette accent */}
                 <div className="absolute bottom-3 left-3 text-xs font-mono text-white/20">1X-0{idx + 1}</div>
