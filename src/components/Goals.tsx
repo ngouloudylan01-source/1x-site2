@@ -12,56 +12,49 @@ export default function Goals() {
   const [open, setOpen] = useState<string | null>(GOALS[0].id);
 
   return (
-    <section id="goals" className="relative py-24 sm:py-32 overflow-hidden bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950">
-      <div className="absolute inset-0 bg-noise opacity-30" />
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-14">
-          <span className="text-xs font-display tracking-[0.4em] uppercase text-amber-400">
+    <section id="goals" className="relative py-20 sm:py-28 bg-ink-900/40 border-t border-white/5">
+      <div className="max-w-3xl mx-auto px-5 sm:px-6">
+        <div className="mb-12">
+          <span className="text-xs font-semibold tracking-wide uppercase text-amber-400">
             Où va votre soutien
           </span>
-          <h2 className="mt-3 font-black-display text-3xl sm:text-4xl md:text-5xl text-white">
-            TROIS OBJECTIFS, <span className="text-gradient-warm">UN SEUL CHEMIN</span>
+          <h2 className="mt-3 font-heading font-extrabold text-3xl sm:text-4xl text-white">
+            Trois objectifs, un seul chemin
           </h2>
-          <div className="mt-4 w-24 h-1 mx-auto bg-gradient-to-r from-teal-500 to-amber-400" />
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {GOALS.map((goal) => {
             const Icon = ICONS[goal.icon];
             const isOpen = open === goal.id;
             return (
-              <div
-                key={goal.id}
-                className="glass rounded-lg overflow-hidden transition-all duration-500"
-                style={{ borderLeft: `3px solid ${goal.color}` }}
-              >
+              <div key={goal.id} className="card rounded-lg overflow-hidden">
                 <button
                   onClick={() => setOpen(isOpen ? null : goal.id)}
-                  className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
+                  className="w-full flex items-center gap-4 p-5 text-left"
                 >
                   <div
-                    className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ background: `${goal.color}20` }}
+                    className="flex-shrink-0 w-10 h-10 rounded-md flex items-center justify-center"
+                    style={{ background: `${goal.color}18` }}
                   >
-                    <Icon className="w-6 h-6" style={{ color: goal.color }} />
+                    <Icon className="w-5 h-5" style={{ color: goal.color }} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">{goal.title}</h3>
-                    <p className="text-sm text-ink-300 mt-0.5">{goal.short}</p>
+                    <h3 className="text-base sm:text-lg font-semibold text-white">{goal.title}</h3>
+                    <p className="text-sm text-ink-400 mt-0.5">{goal.short}</p>
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 text-ink-400 transition-transform duration-300 flex-shrink-0 ${
+                    className={`w-4 h-4 text-ink-400 transition-transform duration-300 flex-shrink-0 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-500 ${
+                  className={`overflow-hidden transition-all duration-300 ${
                     isOpen ? 'max-h-96' : 'max-h-0'
                   }`}
                 >
-                  <p className="px-5 sm:px-6 pb-6 text-sm sm:text-base text-ink-100 leading-relaxed">
+                  <p className="px-5 pb-5 text-sm sm:text-base text-ink-300 leading-relaxed">
                     {goal.text}
                   </p>
                 </div>

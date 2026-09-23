@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Story from '@/components/Story';
 import Goals from '@/components/Goals';
+import AiProjects from '@/components/AiProjects';
 import AiAssistant from '@/components/AiAssistant';
 import Impact from '@/components/Impact';
 import Faq from '@/components/Faq';
@@ -18,6 +19,7 @@ function App() {
           <Hero />
           <Story />
           <Goals />
+          <AiProjects />
           <AiAssistant />
           <Impact />
           <Faq />

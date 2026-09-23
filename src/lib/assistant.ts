@@ -52,6 +52,9 @@ const RULES: Rule[] = [
       'cod',
       'call',
       'duty',
+      'graphisme',
+      'graphismes',
+      'niveau',
     ],
     answer: () => GOALS.find((g) => g.id === 'gaming')!.text,
   },
@@ -67,8 +70,16 @@ const RULES: Rule[] = [
       'sport',
       'fitness',
       'maladie',
+      'chute',
+      'tombe',
+      'intensite',
     ],
     answer: () => GOALS.find((g) => g.id === 'health')!.text,
+  },
+  {
+    keywords: ['projet', 'projets', 'outil', 'outils', 'communaute', 'ia projet'],
+    answer: () =>
+      "Je publie ici, au fil du temps, des outils et projets construits avec l'intelligence artificielle, pensés pour être utiles à la communauté et pas seulement à moi. Va voir la section \"Projets IA\" de la page pour les découvrir au fur et à mesure.",
   },
   {
     keywords: ['pourquoi', 'raison', 'but', 'objectif'],

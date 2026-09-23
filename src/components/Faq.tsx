@@ -1,21 +1,19 @@
 import { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { EXPLAIN_SIMPLE } from '@/data';
 
 export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-24 sm:py-32 overflow-hidden bg-ink-950">
-      <div className="absolute inset-0 bg-noise opacity-20" />
-
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-12">
-          <span className="text-xs font-display tracking-[0.4em] uppercase text-teal-400">
+    <section id="faq" className="relative py-20 sm:py-28 bg-ink-900/40 border-t border-white/5">
+      <div className="max-w-3xl mx-auto px-5 sm:px-6">
+        <div className="mb-12">
+          <span className="text-xs font-semibold tracking-wide uppercase text-teal-400">
             En toute transparence
           </span>
-          <h2 className="mt-3 font-black-display text-3xl sm:text-4xl md:text-5xl text-white">
-            EXPLIQUÉ <span className="text-gradient-warm">SIMPLEMENT</span>
+          <h2 className="mt-3 font-heading font-extrabold text-3xl sm:text-4xl text-white">
+            Questions fréquentes
           </h2>
         </div>
 
@@ -23,12 +21,11 @@ export default function Faq() {
           {EXPLAIN_SIMPLE.map((item, idx) => {
             const isOpen = open === idx;
             return (
-              <div key={idx} className="glass rounded-lg overflow-hidden">
+              <div key={idx} className="card rounded-lg overflow-hidden">
                 <button
                   onClick={() => setOpen(isOpen ? null : idx)}
                   className="w-full flex items-center gap-3 p-5 text-left"
                 >
-                  <HelpCircle className="w-5 h-5 text-teal-400 flex-shrink-0" />
                   <span className="flex-1 text-sm sm:text-base font-semibold text-white">
                     {item.q}
                   </span>
@@ -39,11 +36,11 @@ export default function Faq() {
                   />
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-500 ${
+                  className={`overflow-hidden transition-all duration-300 ${
                     isOpen ? 'max-h-64' : 'max-h-0'
                   }`}
                 >
-                  <p className="px-5 pb-5 pl-12 text-sm text-ink-200 leading-relaxed">{item.a}</p>
+                  <p className="px-5 pb-5 text-sm text-ink-300 leading-relaxed">{item.a}</p>
                 </div>
               </div>
             );

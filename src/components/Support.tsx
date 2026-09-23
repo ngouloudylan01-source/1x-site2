@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import QRCode from 'react-qr-code';
-import { Copy, Check, ExternalLink, Gift, Coffee } from 'lucide-react';
+import { Copy, Check, ArrowUpRight, Gift, Coffee } from 'lucide-react';
 import { CRYPTO, LINKS } from '@/data';
 
 export default function Support() {
@@ -12,109 +12,95 @@ export default function Support() {
       setCopiedId(id);
       window.setTimeout(() => setCopiedId((cur) => (cur === id ? null : cur)), 2000);
     } catch {
-      // Clipboard indisponible — l'utilisateur peut toujours sélectionner le texte manuellement.
+      // Presse-papiers indisponible — l'adresse reste sélectionnable manuellement.
     }
   };
 
   return (
-    <section id="support" className="relative py-24 sm:py-32 overflow-hidden bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950">
-      <div className="absolute inset-0 bg-radial-warm opacity-40" />
-      <div className="absolute inset-0 bg-noise opacity-30" />
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-14">
-          <span className="text-xs font-display tracking-[0.4em] uppercase text-amber-400">
+    <section id="support" className="relative py-20 sm:py-28 bg-ink-950 border-t border-white/5">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6">
+        <div className="mb-12">
+          <span className="text-xs font-semibold tracking-wide uppercase text-teal-400">
             Chaque geste compte
           </span>
-          <h2 className="mt-3 font-black-display text-3xl sm:text-4xl md:text-5xl text-white">
-            SOUTENIR <span className="text-gradient-warm">CE PROJET</span>
+          <h2 className="mt-3 font-heading font-extrabold text-3xl sm:text-4xl text-white">
+            Soutenir ce projet
           </h2>
-          <p className="mt-4 text-ink-300 text-sm sm:text-base max-w-xl mx-auto">
-            Merci sincèrement de considérer un don. Voici toutes les façons de m'aider — choisis
-            celle qui te convient le mieux.
+          <p className="mt-4 text-ink-400 text-base leading-relaxed max-w-xl">
+            Merci sincèrement de considérer un don. Voici toutes les façons de m'aider.
           </p>
         </div>
 
-        {/* External platforms */}
         <div className="grid sm:grid-cols-2 gap-4 mb-10">
           <a
             href={LINKS.donatree}
             target="_blank"
             rel="noopener noreferrer"
-            className="group glass rounded-lg p-6 flex items-center gap-4 transition-all hover:border-teal-400/40 hover:scale-[1.01]"
-            style={{ borderLeft: '3px solid #2dd4bf' }}
+            className="card card-hover rounded-lg p-5 flex items-center gap-4"
           >
-            <div className="w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center flex-shrink-0">
-              <Gift className="w-6 h-6 text-teal-400" />
+            <div className="w-10 h-10 rounded-md bg-teal-500/10 flex items-center justify-center flex-shrink-0">
+              <Gift className="w-5 h-5 text-teal-400" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-white font-semibold">Ma page Donatr.ee</p>
-              <p className="text-xs text-ink-300 truncate">donatr.ee/dylan07</p>
+              <p className="text-white font-semibold text-sm">Ma page Donatr.ee</p>
+              <p className="text-xs text-ink-500 truncate">donatr.ee/dylan07</p>
             </div>
-            <ExternalLink className="w-4 h-4 text-ink-400 group-hover:text-teal-400 transition-colors flex-shrink-0" />
+            <ArrowUpRight className="w-4 h-4 text-ink-500 flex-shrink-0" />
           </a>
 
           <a
             href={LINKS.gumroad}
             target="_blank"
             rel="noopener noreferrer"
-            className="group glass rounded-lg p-6 flex items-center gap-4 transition-all hover:border-amber-400/40 hover:scale-[1.01]"
-            style={{ borderLeft: '3px solid #f59e0b' }}
+            className="card card-hover rounded-lg p-5 flex items-center gap-4"
           >
-            <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-              <Coffee className="w-6 h-6 text-amber-400" />
+            <div className="w-10 h-10 rounded-md bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+              <Coffee className="w-5 h-5 text-amber-400" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-white font-semibold">Faire un don via Gumroad</p>
-              <p className="text-xs text-ink-300 truncate">dylangoulo.gumroad.com</p>
+              <p className="text-white font-semibold text-sm">Don via Gumroad</p>
+              <p className="text-xs text-ink-500 truncate">dylangoulo.gumroad.com</p>
             </div>
-            <ExternalLink className="w-4 h-4 text-ink-400 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+            <ArrowUpRight className="w-4 h-4 text-ink-500 flex-shrink-0" />
           </a>
         </div>
 
-        {/* Crypto donations */}
-        <div className="text-center mb-8">
-          <h3 className="font-display text-xl tracking-widest text-white uppercase">
-            Ou en <span className="text-gradient-warm">crypto-monnaie</span>
-          </h3>
-          <p className="text-sm text-ink-400 mt-1">
-            Scanne le QR code ou copie l'adresse — vérifie toujours le réseau avant d'envoyer.
+        <div className="mb-6">
+          <h3 className="text-base font-semibold text-white">Ou en crypto-monnaie</h3>
+          <p className="text-sm text-ink-500 mt-1">
+            Scannez le QR code ou copiez l'adresse — vérifiez toujours le réseau avant d'envoyer.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-3 gap-4">
           {CRYPTO.map((c) => (
-            <div
-              key={c.id}
-              className="glass rounded-lg p-5 flex flex-col items-center text-center transition-all hover:scale-[1.02]"
-              style={{ borderTop: `2px solid ${c.color}` }}
-            >
+            <div key={c.id} className="card rounded-lg p-5 flex flex-col items-center text-center">
               <span
-                className="text-xs px-2.5 py-1 rounded-full font-semibold mb-4"
-                style={{ background: `${c.color}20`, color: c.color }}
+                className="text-xs px-2.5 py-1 rounded-full font-medium mb-4"
+                style={{ background: `${c.color}18`, color: c.color }}
               >
                 {c.network}
               </span>
 
               <div className="bg-white p-3 rounded-md mb-4">
-                <QRCode value={c.address} size={128} />
+                <QRCode value={c.address} size={112} />
               </div>
 
-              <p className="font-black-display text-lg text-white mb-1">{c.ticker}</p>
-              <p className="text-xs font-mono text-ink-300 break-all mb-4 px-1">{c.address}</p>
+              <p className="font-heading font-bold text-base text-white mb-1">{c.ticker}</p>
+              <p className="text-xs font-mono text-ink-500 break-all mb-4 px-1">{c.address}</p>
 
               <button
                 onClick={() => copy(c.id, c.address)}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm text-sm font-semibold transition-all"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-md text-sm font-semibold transition-colors border"
                 style={{
-                  background: copiedId === c.id ? `${c.color}30` : `${c.color}15`,
+                  background: copiedId === c.id ? `${c.color}20` : 'transparent',
                   color: c.color,
-                  border: `1px solid ${c.color}40`,
+                  borderColor: `${c.color}35`,
                 }}
               >
                 {copiedId === c.id ? (
                   <>
-                    <Check className="w-4 h-4" /> Adresse copiée !
+                    <Check className="w-4 h-4" /> Copié
                   </>
                 ) : (
                   <>
@@ -126,9 +112,9 @@ export default function Support() {
           ))}
         </div>
 
-        <p className="text-center text-xs text-ink-500 mt-10 max-w-lg mx-auto leading-relaxed">
-          Merci du fond du cœur pour ta générosité, quelle qu'elle soit. Si tu ne peux pas donner,
-          partager cette page autour de toi est déjà un immense soutien. 🙏
+        <p className="text-center text-xs text-ink-600 mt-10 max-w-lg mx-auto leading-relaxed">
+          Merci pour votre générosité, quelle qu'elle soit. Si vous ne pouvez pas donner, partager
+          cette page est déjà une aide précieuse.
         </p>
       </div>
     </section>

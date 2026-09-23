@@ -1,9 +1,9 @@
-// Contenu du site de soutien — Dylan (dev & créateur de contenu)
+// Contenu du site de soutien — Dylan (développeur & créateur)
 
 export const PROFILE = {
   name: 'Dylan',
   handle: 'dylan07',
-  title: 'Dev, IA & Gaming — En route vers un nouveau départ',
+  title: 'Développeur — Projets IA, gaming et santé',
 };
 
 export const LINKS = {
@@ -41,48 +41,50 @@ export const CRYPTO = [
 export const GOALS = [
   {
     id: 'pc',
-    title: 'Un PC à la hauteur de mes projets',
+    title: 'Une machine à la hauteur de mes projets',
     icon: 'cpu',
     color: '#2dd4bf',
-    short: 'Coder plus vite, entraîner et faire tourner de vrais projets IA.',
+    short: 'Développer, entraîner et faire tourner de vrais projets IA sans limite.',
     text:
-      "Aujourd'hui, mon matériel me freine. Compiler un projet, tester une IA ou lancer plusieurs outils en même temps prend un temps fou — parfois ça plante carrément. Un PC puissant, c'est simplement le bon outil pour le bon métier : je pourrai développer plus vite, apprendre plus vite, et enfin donner vie à des projets que je repousse depuis longtemps faute de machine adaptée.",
+      "Aujourd'hui, mon matériel me freine au quotidien. Compiler un projet, tester un modèle d'IA ou faire tourner plusieurs outils en même temps prend un temps fou — et plante parfois complètement. Une machine plus puissante me permettrait de développer plus vite, d'expérimenter davantage, et de finir des projets IA que je repousse depuis longtemps faute d'outil adapté.",
   },
   {
     id: 'gaming',
-    title: 'Jouer, streamer, partager',
+    title: 'Jouer au meilleur niveau, sur les plus gros jeux',
     icon: 'gamepad',
     color: '#f59e0b',
-    short: 'Un vieux rêve : jouer à Call of Duty et Fortnite sans galérer, puis streamer.',
+    short:
+      'Découvrir les jeux AAA modernes en pleine qualité graphique, et viser un vrai haut niveau sur Call of Duty et Fortnite.',
     text:
-      "Ce n'est pas juste \"jouer pour jouer\". Depuis toujours, je rêve de pouvoir lancer Call of Duty ou Fortnite sans ramer, de partager ça avec une communauté, et pourquoi pas commencer à streamer mes sessions — coding le jour, gaming le soir. La même machine qui me sert à coder me permettra de vivre ce rêve-là aussi.",
+      "Je rêve de découvrir les jeux les plus impressionnants du moment — ceux avec des graphismes dernier cri, qu'on ne peut vraiment apprécier qu'avec une machine capable de les faire tourner à fond. Mais mon vrai objectif, c'est surtout de progresser sérieusement sur Call of Duty et Fortnite : viser un niveau de jeu élevé, m'entraîner dans de bonnes conditions (sans lag, sans coupures), et pourquoi pas partager cette progression avec une communauté en streaming.",
   },
   {
     id: 'health',
-    title: 'Retrouver ma mobilité',
+    title: 'Soulager mes genoux et pouvoir bouger sans crainte',
     icon: 'heart',
     color: '#fb7185',
-    short: "Des douleurs aux genoux liées au poids, qui limitent mes mouvements au quotidien.",
+    short:
+      "Le surpoids fait très mal à mes genoux, surtout dès que je fais du sport intense — une fragilité amplifiée par plusieurs chutes dans l'enfance.",
     text:
-      "C'est la partie la plus personnelle. Le surpoids abîme mes genoux et me fait mal, tous les jours, dans des gestes simples. Une partie de ce soutien servira à m'équiper (matériel sportif adapté) et à consulter des professionnels de santé pour perdre du poids progressivement et soulager mes articulations, sans me blesser davantage.",
+      "C'est la partie la plus personnelle. Mon poids actuel met une pression énorme sur mes genoux, et dès que j'essaie de faire du sport à haute intensité, la douleur devient vite très forte — en partie à cause de chutes que j'ai eues étant petit, qui ont fragilisé mes articulations. Résultat : je n'ose plus me lancer dans une activité physique intense, alors que c'est justement ce dont j'aurais besoin. Une partie de ce soutien servira à un accompagnement médical adapté (suivi, kinésithérapie) et à du matériel sportif à faible impact, pour perdre du poids progressivement sans aggraver mes genoux.",
   },
 ];
 
 export const EXPLAIN_SIMPLE = [
   {
-    q: "Pourquoi tu demandes de l'aide au lieu d'acheter petit à petit ?",
-    a: "Parce que certaines choses ne s'achètent pas \"petit à petit\" : un PC capable de faire tourner des projets IA sérieux coûte cher d'un coup, et un accompagnement santé (kiné, suivi, équipement) demande aussi un budget de départ. Demander de l'aide me permet d'avancer sur les deux fronts en même temps, au lieu d'attendre des années.",
+    q: "Pourquoi demander de l'aide plutôt qu'épargner petit à petit ?",
+    a: "Parce que certains besoins ne s'achètent pas petit à petit : une machine capable de faire tourner de l'IA sérieusement coûte cher d'un coup, et un vrai suivi santé (kiné, équipement adapté) demande aussi un budget de départ. Ce soutien me permet d'avancer sur ces deux fronts en même temps, plutôt que d'attendre des années.",
   },
   {
-    q: "À quoi va vraiment servir l'argent ?",
-    a: "Concrètement : une partie pour un PC/config capable de coder, entraîner et faire tourner de l'IA correctement (et jouer sans lag) ; une autre partie pour du matériel sportif adapté à mon poids et mes genoux, ainsi qu'un accompagnement médical pour perdre du poids sans me blesser. Rien de superflu : c'est un outil de travail et ma santé.",
+    q: "À quoi va concrètement servir l'argent récolté ?",
+    a: "Une partie pour une machine capable de développer et faire tourner des projets IA sérieux (et accessoirement, de jouer dans de bonnes conditions) ; une autre partie pour un accompagnement médical et du matériel sportif adapté à mes genoux, afin de perdre du poids sans me blesser davantage. Rien de superflu : un outil de travail, et ma santé.",
   },
   {
-    q: "Pourquoi le gaming et le streaming, ce n'est pas juste un caprice ?",
-    a: "Parce que c'est lié : la même machine qui me permet de coder me permet aussi de vivre une passion que je porte depuis toujours. Et le streaming, c'est aussi une façon de construire quelque chose en plus — une communauté, une activité complémentaire à mes projets tech.",
+    q: "Pourquoi parler autant de gaming, ce n'est pas juste un loisir ?",
+    a: "Parce que c'est lié à la même machine et à la même envie de progresser : celle qui me sert à coder me permet aussi de vivre une passion que je porte depuis toujours, notamment sur Call of Duty et Fortnite. Et le partage en streaming serait une manière naturelle de prolonger ça.",
   },
   {
-    q: "Comment je peux aider si je n'ai pas d'argent à donner ?",
+    q: "Comment aider si je ne peux pas donner d'argent ?",
     a: "Partager cette page autour de toi aide déjà énormément. Un partage peut toucher quelqu'un qui, lui, pourra donner. Chaque petit geste — un partage, un message d'encouragement — compte vraiment.",
   },
 ];
@@ -90,17 +92,41 @@ export const EXPLAIN_SIMPLE = [
 export const IMPACT_STEPS = [
   {
     step: '01',
-    title: 'Aujourd’hui',
-    text: 'Un matériel limité qui ralentit mes projets IA/dev, et des douleurs qui limitent mes journées.',
+    title: 'Aujourd\u2019hui',
+    text: 'Un matériel limité qui freine mes projets IA, et des genoux qui font mal dès que je force un peu.',
   },
   {
     step: '02',
     title: 'Avec votre soutien',
-    text: 'Un PC adapté pour coder et créer sérieusement + un vrai suivi santé pour retrouver de la mobilité.',
+    text: 'Une machine adaptée pour créer sérieusement, et un vrai accompagnement pour soulager mes articulations.',
   },
   {
     step: '03',
     title: 'Demain',
-    text: 'Des projets tech/IA aboutis, des sessions de jeu et de stream fluides, un corps qui va mieux.',
+    text: 'Des projets IA utiles partagés avec la communauté, un niveau de jeu qui progresse, et un corps qui va mieux.',
+  },
+];
+
+// Projets IA — section mise à jour au fil du temps avec les outils/projets
+// que Dylan construit et partage avec la communauté.
+export interface AiProject {
+  id: string;
+  title: string;
+  description: string;
+  tag: string;
+  status: 'Disponible' | 'En cours' | 'Bientôt';
+  link?: string;
+  date: string;
+}
+
+export const AI_PROJECTS: AiProject[] = [
+  {
+    id: 'placeholder-1',
+    title: 'Premier projet à venir',
+    description:
+      "Cet espace accueillera bientôt mon premier outil ou projet construit avec l'IA, pensé pour être utile à la communauté. Revenez régulièrement pour le découvrir.",
+    tag: 'À venir',
+    status: 'Bientôt',
+    date: '—',
   },
 ];
