@@ -9,25 +9,28 @@ import Faq from '@/components/Faq';
 import Support from '@/components/Support';
 import Footer from '@/components/Footer';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import { LanguageProvider } from '@/i18n';
 
 function App() {
   return (
-    <ErrorBoundary>
-      <div className="bg-ink-950 min-h-screen">
-        <Header />
-        <main>
-          <Hero />
-          <Story />
-          <Goals />
-          <AiProjects />
-          <AiAssistant />
-          <Impact />
-          <Faq />
-          <Support />
-        </main>
-        <Footer />
-      </div>
-    </ErrorBoundary>
+    <LanguageProvider>
+      <ErrorBoundary>
+        <div className="bg-ink-950 min-h-screen">
+          <Header />
+          <main>
+            <Hero />
+            <Story />
+            <Goals />
+            <AiProjects />
+            <AiAssistant />
+            <Impact />
+            <Faq />
+            <Support />
+          </main>
+          <Footer />
+        </div>
+      </ErrorBoundary>
+    </LanguageProvider>
   );
 }
 

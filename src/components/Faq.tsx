@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { EXPLAIN_SIMPLE } from '@/data';
+import { useLanguage } from '@/i18n';
 
 export default function Faq() {
+  const { t } = useLanguage();
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -10,25 +11,24 @@ export default function Faq() {
       <div className="max-w-3xl mx-auto px-5 sm:px-6">
         <div className="mb-12">
           <span className="text-xs font-semibold tracking-wide uppercase text-teal-400">
-            En toute transparence
+            {t.faq.eyebrow}
           </span>
           <h2 className="mt-3 font-heading font-extrabold text-3xl sm:text-4xl text-white">
-            Questions fréquentes
+            {t.faq.title}
           </h2>
         </div>
 
         <div className="space-y-3">
-          {EXPLAIN_SIMPLE.map((item, idx) => {
-            const isOpen = open === idx;
+          {t.faq.items.map((item, index) => {
+            const isOpen = open === index;
             return (
-              <div key={idx} className="card rounded-lg overflow-hidden">
+              <div key={item.q} className="card rounded-lg overflow-hidden">
                 <button
-                  onClick={() => setOpen(isOpen ? null : idx)}
+                  onClick={() => setOpen(isOpen ? null : index)}
                   className="w-full flex items-center gap-3 p-5 text-left"
+                  aria-expanded={isOpen}
                 >
-                  <span className="flex-1 text-sm sm:text-base font-semibold text-white">
-                    {item.q}
-                  </span>
+                  <span className="flex-1 text-sm sm:text-base font-semibold text-white">{item.q}</span>
                   <ChevronDown
                     className={`w-4 h-4 text-ink-400 transition-transform duration-300 flex-shrink-0 ${
                       isOpen ? 'rotate-180' : ''
