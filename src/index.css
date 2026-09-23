@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --blood-red: #c8102e;
-  --deep-red: #8b0a1e;
-  --dark-red: #5e0613;
-  --gold: #c9a84c;
-  --gold-bright: #e6c558;
-  --anthracite: #2a2a2e;
-  --charcoal: #16161a;
-  --void: #0a0a0c;
+  --teal: #2dd4bf;
+  --amber: #f59e0b;
+  --ink-deep: #0b0e10;
+  --gold: #fbbf24;
+  --gold-bright: #fcd34d;
+  --surface: #181e22;
+  --charcoal: #11151a;
+  --void: #0b0e10;
 }
 
 * {
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background-color: #0a0a0c;
+  background-color: #0b0e10;
   color: #f5f5f5;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
@@ -45,14 +45,14 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0c;
+  background: #0b0e10;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #c8102e, #5e0613);
+  background: linear-gradient(180deg, #2dd4bf, #0f766e);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #e6203a, #8b0a1e);
+  background: linear-gradient(180deg, #fbbf24, #c46f08);
 }
 
 /* ===== 3D & Perspective Utilities ===== */
@@ -70,31 +70,31 @@ body {
 }
 
 /* ===== Glow Effects ===== */
-.glow-red {
-  box-shadow: 0 0 30px rgba(200, 16, 46, 0.4), 0 0 60px rgba(200, 16, 46, 0.2);
+.glow-warm {
+  box-shadow: 0 0 30px rgba(45, 212, 191, 0.4), 0 0 60px rgba(45, 212, 191, 0.2);
 }
-.glow-red-strong {
-  box-shadow: 0 0 40px rgba(200, 16, 46, 0.6), 0 0 80px rgba(200, 16, 46, 0.3), 0 0 120px rgba(200, 16, 46, 0.15);
+.glow-warm-strong {
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.6), 0 0 80px rgba(45, 212, 191, 0.3), 0 0 120px rgba(45, 212, 191, 0.15);
 }
 .glow-gold {
   box-shadow: 0 0 30px rgba(201, 168, 76, 0.4), 0 0 60px rgba(201, 168, 76, 0.2);
 }
-.text-glow-red {
-  text-shadow: 0 0 20px rgba(200, 16, 46, 0.6), 0 0 40px rgba(200, 16, 46, 0.3);
+.text-glow-warm {
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.6), 0 0 40px rgba(45, 212, 191, 0.3);
 }
 .text-glow-gold {
   text-shadow: 0 0 20px rgba(201, 168, 76, 0.5), 0 0 40px rgba(201, 168, 76, 0.25);
 }
 
 /* ===== Gradient Text ===== */
-.text-gradient-red {
-  background: linear-gradient(135deg, #e6203a 0%, #c8102e 40%, #8b0a1e 100%);
+.text-gradient-warm {
+  background: linear-gradient(135deg, #fbbf24 0%, #2dd4bf 55%, #14b8a6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .text-gradient-gold {
-  background: linear-gradient(135deg, #e6c558 0%, #c9a84c 50%, #9a7a32 100%);
+  background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #c46f08 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -181,13 +181,13 @@ body {
 
 .bg-grid {
   background-image:
-    linear-gradient(rgba(200, 16, 46, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 16, 46, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(45, 212, 191, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.06) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
-.bg-radial-red {
-  background: radial-gradient(ellipse at center, rgba(200, 16, 46, 0.15) 0%, transparent 70%);
+.bg-radial-warm {
+  background: radial-gradient(ellipse at center, rgba(45, 212, 191, 0.15) 0%, transparent 70%);
 }
 
 /* ===== Card 3D tilt base ===== */
@@ -203,11 +203,11 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
-.glass-red {
-  background: rgba(94, 6, 19, 0.25);
+.glass-warm {
+  background: rgba(15, 118, 110, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 16, 46, 0.2);
+  border: 1px solid rgba(45, 212, 191, 0.2);
 }
 
 /* ===== Hover underline reveal ===== */
@@ -221,7 +221,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #e6203a, #c9a84c);
+  background: linear-gradient(90deg, #2dd4bf, #fbbf24);
   transition: width 0.3s ease;
 }
 .link-underline:hover::after {
@@ -247,14 +247,14 @@ body {
 
 /* ===== 3D shadow depth ===== */
 .shadow-3d {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(200, 16, 46, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(45, 212, 191, 0.2);
 }
 .shadow-3d-deep {
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7), 0 5px 20px rgba(200, 16, 46, 0.3);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7), 0 5px 20px rgba(45, 212, 191, 0.3);
 }
 
 /* ===== Selection ===== */
 ::selection {
-  background: rgba(200, 16, 46, 0.3);
+  background: rgba(45, 212, 191, 0.3);
   color: #fff;
 }
