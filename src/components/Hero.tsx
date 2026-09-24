@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import heroImg from '@/assets/hero-illustration.jpg';
+import gamingPcImg from '@/assets/gaming-pc.jpg';
 import { useLanguage } from '@/i18n';
 
 export default function Hero() {
@@ -41,11 +41,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative animate-fade-in">
-          <div className="rounded-xl overflow-hidden border border-white/10 glow-soft">
-            <img src={heroImg} alt={t.hero.imageAlt} className="w-full h-auto object-cover" />
-          </div>
-        </div>
+        <figure className="relative animate-fade-in rounded-2xl overflow-hidden border border-white/10 glow-soft bg-ink-900">
+          <img
+            src={gamingPcImg}
+            alt={t.hero.imageAlt}
+            className="w-full aspect-[16/10] object-cover"
+          />
+          <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950/90 via-ink-950/45 to-transparent px-5 pt-14 pb-5 text-sm text-white">
+            {t.goals.items.pc.title}
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
