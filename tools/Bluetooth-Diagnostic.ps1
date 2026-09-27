@@ -96,6 +96,7 @@ function Get-BluetoothRadioDevices {
 
     # Les énumérateurs, profils audio et protocoles ne sont pas les radios physiques.
     return @($devices | Where-Object {
+        $_.Problem -ne 'CM_PROB_PHANTOM' -and
         $_.FriendlyName -notmatch '(?i)enumerator|RFCOMM|protocol|hands.free|headset|audio'
     })
 }
@@ -169,7 +170,12 @@ function Show-Diagnostics {
     $null = Get-BluetoothServices
 
     Write-Section 'Adaptateurs et périphériques Bluetooth'
-    $null = Get-BluetoothDevices
+    $diagnosticDevices = @(Get-BluetoothDevices)
+    $phantomDevices = @($diagnosticDevices | Where-Object { $_.Problem -eq 'CM_PROB_PHANTOM' })
+    if ($diagnosticDevices.Count -gt 0 -and $phantomDevices.Count -eq $diagnosticDevices.Count) {
+        Write-Host 'CONCLUSION : Windows ne voit actuellement aucun adaptateur Bluetooth présent.' -ForegroundColor Red
+        Write-Host 'Les entrées listées sont des restes déconnectés (CM_PROB_PHANTOM). Les services seuls ne peuvent pas réactiver une radio absente.' -ForegroundColor Yellow
+    }
 
     Write-Section 'Pilotes'
     Get-DriverInfo
@@ -239,9 +245,18 @@ function Enable-BluetoothDevices {
         return
     }
 
-    $disabled = @($devices | Where-Object { $_.Status -notmatch '^(OK|Started)$' -or $_.Problem })
+    $disabled = @($devices | Where-Object {
+        $_.Problem -ne 'CM_PROB_PHANTOM' -and
+        ($_.Status -notmatch '^(OK|Started)$' -or $_.Problem)
+    })
     if (-not $disabled) {
-        Write-Host 'Les périphériques Bluetooth semblent déjà actifs.' -ForegroundColor Green
+        $phantomCount = @($devices | Where-Object { $_.Problem -eq 'CM_PROB_PHANTOM' }).Count
+        if ($phantomCount -gt 0) {
+            Write-Host 'Aucun adaptateur Bluetooth présent n’est détecté : les entrées trouvées sont fantômes/déconnectées.' -ForegroundColor Red
+            Write-Host 'Il faut vérifier le mode avion, la touche radio HP, le BIOS, puis réinstaller le pilote Intel adapté au modèle.' -ForegroundColor Yellow
+        } else {
+            Write-Host 'Les périphériques Bluetooth semblent déjà actifs.' -ForegroundColor Green
+        }
         return
     }
 
