@@ -112,6 +112,58 @@ function Get-BluetoothDevicesRaw {
     return $devices
 }
 
+function Get-WifiAdapters {
+    if (-not (Get-Command Get-NetAdapter -ErrorAction SilentlyContinue)) { return @() }
+
+    $adapters = @(Get-NetAdapter -ErrorAction SilentlyContinue | Where-Object {
+        $_.Name -match '(?i)wi.?fi|wlan' -or
+        $_.InterfaceDescription -match '(?i)wireless|wi.?fi|802\.11'
+    })
+
+    if ($adapters) {
+        $adapters |
+            Select-Object Name, Status, InterfaceDescription, MacAddress |
+            Format-Table -AutoSize | Out-Host
+    } else {
+        Write-Host 'Aucune carte Wi-Fi détectée par Get-NetAdapter.' -ForegroundColor Yellow
+    }
+
+    return $adapters
+}
+
+function Get-BluetoothCimDevices {
+    return @(Get-CimInstance Win32_PnPEntity -ErrorAction SilentlyContinue |
+        Where-Object {
+            $_.PNPClass -eq 'Bluetooth' -or
+            $_.Name -match '(?i)bluetooth'
+        })
+}
+
+function Show-HardwareSummary {
+    Write-Section 'Comparaison Wi-Fi / Bluetooth'
+    Write-Host 'Cartes Wi-Fi détectées :' -ForegroundColor Gray
+    $wifiAdapters = @(Get-WifiAdapters)
+
+    $bluetoothCim = @(Get-BluetoothCimDevices)
+    $presentBluetooth = @($bluetoothCim | Where-Object { $_.Present -eq $true })
+    $phantomBluetooth = @($bluetoothCim | Where-Object { $_.Present -ne $true })
+
+    Write-Host "`nBluetooth matériel présent : $($presentBluetooth.Count)" -ForegroundColor Gray
+    Write-Host "Anciennes entrées Bluetooth déconnectées : $($phantomBluetooth.Count)" -ForegroundColor Gray
+
+    $wifi8260 = @($wifiAdapters | Where-Object { $_.InterfaceDescription -match '(?i)Intel.*Wireless.*8260|Dual Band Wireless-AC 8260' })
+    if ($wifi8260 -and ($wifi8260 | Where-Object { $_.Status -eq 'Up' })) {
+        if (-not $presentBluetooth) {
+            Write-Host ''
+            Write-Host 'CAS DÉTECTÉ : le Wi-Fi Intel 8260 fonctionne, mais la partie Bluetooth n’est pas énumérée.' -ForegroundColor Red
+            Write-Host 'Le problème est probablement lié à la radio Bluetooth, au BIOS, à l’alimentation du module ou au module combo lui-même.' -ForegroundColor Yellow
+            Write-Host 'Les services et le changement de pilote ne suffiront pas tant que le périphérique USB Bluetooth reste absent.' -ForegroundColor Yellow
+        }
+    }
+
+    return $bluetoothCim
+}
+
 function Get-DriverInfo {
     $devices = @(Get-BluetoothDevicesRaw)
     if (-not $devices) { return }
@@ -177,6 +229,8 @@ function Show-Diagnostics {
         Write-Host 'Les entrées listées sont des restes déconnectés (CM_PROB_PHANTOM). Les services seuls ne peuvent pas réactiver une radio absente.' -ForegroundColor Yellow
     }
 
+    $null = Show-HardwareSummary
+
     Write-Section 'Pilotes'
     Get-DriverInfo
 
@@ -188,6 +242,8 @@ function Show-Diagnostics {
     Write-Host 'Rescan matériel : pnputil.exe /scan-devices' -ForegroundColor Gray
     Write-Host 'Activation PnP : Enable-PnpDevice -InstanceId "<ID>" -Confirm:$false' -ForegroundColor Gray
     Write-Host 'Désactivation PnP : Disable-PnpDevice -InstanceId "<ID>" -Confirm:$false' -ForegroundColor Gray
+    Write-Host 'Gestionnaire de périphériques : devmgmt.msc' -ForegroundColor Gray
+    Write-Host 'Pilotes HP officiels : option 10 du menu' -ForegroundColor Gray
     Write-Host 'Important : le service bthserv actif ne garantit pas que la radio est activée.' -ForegroundColor Yellow
     Write-Host 'Le mode avion, un interrupteur matériel, le BIOS ou le pilote peuvent encore bloquer le Bluetooth.' -ForegroundColor Yellow
 }
@@ -329,6 +385,17 @@ function Start-BluetoothTroubleshooter {
     }
 }
 
+function Open-DeviceManager {
+    Start-Process 'devmgmt.msc'
+    Write-Host 'Gestionnaire de périphériques ouvert.' -ForegroundColor Green
+}
+
+function Open-HPDriverPage {
+    $url = 'https://support.hp.com/emea_middle_east-en/drivers/hp-elitebook-850-g3-notebook-pc/model/7815302'
+    Start-Process $url
+    Write-Host 'Page officielle des pilotes HP ouverte.' -ForegroundColor Green
+}
+
 function Export-BluetoothReport {
     $desktop = [Environment]::GetFolderPath('Desktop')
     $path = Join-Path $desktop ('Bluetooth-rapport-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '.txt')
@@ -338,6 +405,13 @@ function Export-BluetoothReport {
     $lines.Add('')
     $lines.Add('--- SERVICES ---')
     $lines.Add((@(Get-BluetoothServices) | Format-List | Out-String))
+    $lines.Add('--- CARTES WIFI ---')
+    $wifiReport = @(Get-NetAdapter -ErrorAction SilentlyContinue | Where-Object {
+        $_.Name -match '(?i)wi.?fi|wlan' -or $_.InterfaceDescription -match '(?i)wireless|wi.?fi|802\.11'
+    })
+    $lines.Add(($wifiReport | Format-List | Out-String))
+    $lines.Add('--- PRESENCE BLUETOOTH ---')
+    $lines.Add((@(Get-BluetoothCimDevices | Select-Object Name, Present, ConfigManagerErrorCode, PNPDeviceID) | Format-List | Out-String))
     $lines.Add('--- PERIPHERIQUES ---')
     $lines.Add((@(Get-BluetoothDevicesRaw) | Format-List | Out-String))
     $lines.Add('--- PNPUTIL ENUM-DEVICES ---')
@@ -365,7 +439,9 @@ function Show-Menu {
     Write-Host '6. Rescanner le matériel'
     Write-Host '7. Ouvrir les réglages Bluetooth Windows'
     Write-Host '8. Lancer le dépanneur Windows'
-    Write-Host '9. Exporter un rapport sur le Bureau'
+    Write-Host '9. Ouvrir le Gestionnaire de périphériques'
+    Write-Host '10. Ouvrir la page officielle des pilotes HP'
+    Write-Host '11. Exporter un rapport sur le Bureau'
     Write-Host '0. Quitter'
     Write-Host '----------------------------------------' -ForegroundColor DarkGray
 }
@@ -382,7 +458,9 @@ while ($true) {
         '6' { Scan-BluetoothHardware; Read-Host 'Appuie sur Entrée pour continuer' }
         '7' { Open-BluetoothSettings; Read-Host 'Appuie sur Entrée pour continuer' }
         '8' { Start-BluetoothTroubleshooter; Read-Host 'Appuie sur Entrée pour continuer' }
-        '9' { Export-BluetoothReport; Read-Host 'Appuie sur Entrée pour continuer' }
+        '9' { Open-DeviceManager; Read-Host 'Appuie sur Entrée pour continuer' }
+        '10' { Open-HPDriverPage; Read-Host 'Appuie sur Entrée pour continuer' }
+        '11' { Export-BluetoothReport; Read-Host 'Appuie sur Entrée pour continuer' }
         '0' { Write-Host 'Fermeture.' -ForegroundColor Gray; break }
         default { Write-Host 'Choix invalide.' -ForegroundColor Yellow }
     }
