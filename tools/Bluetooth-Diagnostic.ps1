@@ -1,4 +1,4 @@
-#requires -Version 5.1
+﻿#requires -Version 5.1
 <##
 .SYNOPSIS
     Diagnostic et réparation prudente du Bluetooth sous Windows 10.
@@ -338,7 +338,8 @@ function Export-BluetoothReport {
 }
 
 function Show-Menu {
-    Write-Host "`n----------------------------------------" -ForegroundColor DarkGray
+    Write-Host ''
+    Write-Host '----------------------------------------' -ForegroundColor DarkGray
     Write-Host ' OUTIL BLUETOOTH WINDOWS 10' -ForegroundColor Cyan
     Write-Host '----------------------------------------' -ForegroundColor DarkGray
     Write-Host '1. Lancer un diagnostic complet'
